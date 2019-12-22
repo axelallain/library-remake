@@ -6,22 +6,28 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="batch" />
         <module name="books" />
         <module name="borrowings" />
         <module name="client-ui" />
+        <module name="config-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="batch" target="11" />
       <module name="books" target="11" />
       <module name="borrowings" target="11" />
       <module name="client-ui" target="11" />
+      <module name="config-server" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="batch" options="-parameters" />
       <module name="books" options="-parameters" />
       <module name="borrowings" options="-parameters" />
       <module name="client-ui" options="-parameters" />
+      <module name="config-server" options="-parameters" />
     </option>
   </component>
 </project>

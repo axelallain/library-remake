@@ -1,14 +1,60 @@
 package fr.axelallain.books.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import fr.axelallain.books.dao.BooksDao;
+import fr.axelallain.books.exception.BookNotFoundException;
+import fr.axelallain.books.model.Book;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 public class BooksController {
 
-    @GetMapping("/produits")
-    public String produits() {
+    @Autowired
+    private BooksDao booksDao;
 
-        return "good";
+    @GetMapping("/books")
+    public Iterable<Book> books() {
+
+        return booksDao.findAll();
+    }
+
+    @GetMapping("/books/{id}")
+    public Optional<Book> booksById(@PathVariable int id) {
+
+        Optional<Book> book = booksDao.findById(id);
+
+        if (book.isEmpty()) {
+            throw new BookNotFoundException("The book with id " + id + " cannot be found");
+        }
+
+        return book;
+    }
+
+    @PostMapping("/books")
+    public void booksAdd(Book book) {
+
+        booksDao.save(book);
+    }
+
+    @PutMapping("/books/{id}")
+    public void booksEdit(@RequestBody Book book, @PathVariable int id) {
+
+        Optional<Book> bookOptional = booksDao.findById(id);
+
+        if (bookOptional.isEmpty()) {
+            throw new BookNotFoundException("The book with id " + id + " cannot be found");
+        }
+
+        book.setId(id);
+
+        booksDao.save(book);
+    }
+
+    @DeleteMapping("/books/{id}")
+    public void booksDelete(@PathVariable int id) {
+
+        booksDao.deleteById(id);
     }
 }
