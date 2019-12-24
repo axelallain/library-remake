@@ -6,13 +6,13 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(name = "books", url = "localhost:9001")
+@FeignClient(name = "zuul")
 @RibbonClient(name = "books")
 public interface BooksProxy {
 
-    @GetMapping(value = "/books")
+    @GetMapping(value = "/books/books")
     Iterable<Book> books();
 
-    @GetMapping(value = "/books/{id}")
+    @GetMapping(value = "/books/books/{id}")
     Book booksById(@PathVariable("id") int id);
 }
