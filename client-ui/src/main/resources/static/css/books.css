@@ -1,0 +1,58 @@
+body {
+    background-color: #2A6C97;
+}
+
+.table {
+    width: 58%;
+    background-color: white;
+    margin-bottom: 3%;
+}
+
+.s007 a {
+    color: #2A6C97;
+}
+
+.s007 a:hover {
+    color: #1A9CF1;
+}
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+    bottom: .5em;
+}
+
+.truncate {
+    max-width: 170px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn {
+    margin: 0;
+}
+
+table.table a {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+@media (max-width: 576px) {
+
+    .table {
+        width: 100%;
+    }
+
+    table.table a {
+        margin-left: 7%;
+        margin-right: 7%;
+    }
+}

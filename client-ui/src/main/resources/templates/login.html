@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>Connexion</title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="css/material-kit.css?v=2.0.6" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="demo/demo.css" rel="stylesheet" />
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" />
+  <link href="css/main.css" rel="stylesheet" />
+
+  <link href="css/login.css" rel="stylesheet" />
+</head>
+
+<body class="login-page sidebar-collapse">
+  <!--Navbar-->
+  <div th:replace="fragments/navbar :: navbar">
+  </div>
+  <!--/.Navbar-->
+
+  <div class="s007">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-sm-offset-2 col-md-offset-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title text-center">Connexion</h3>
+          </div>
+          <div class="panel-body">
+            <form role="form">
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                  <div class="form-group">
+                    <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Adresse email">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                  <div class="form-group">
+                    <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Mot de passe">
+                  </div>
+                </div>
+              </div>
+
+              <input type="submit" value="Confirmer" class="btn btn-info btn-block">
+              <a th:href="@{/inscription}">Pas de compte ? Cliquez ici pour vous inscrire !</a>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Footer-->
+  <div th:replace="fragments/footer :: footer">
+  </div>
+  <!--/.Footer-->
+  <!--   Core JS Files   -->
+  <script src="js/core/jquery.min.js" type="text/javascript"></script>
+  <script src="js/core/popper.min.js" type="text/javascript"></script>
+  <script src="js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+  <script src="js/plugins/moment.min.js"></script>
+  <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+  <script src="js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
+  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+  <script src="js/plugins/nouislider.min.js" type="text/javascript"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+  <script src="js/material-kit.js?v=2.0.6" type="text/javascript"></script>
+
+  <script src="js/extention/choices.js"></script>
+  <script>
+    const customSelects = document.querySelectorAll("select");
+    const deleteBtn = document.getElementById('delete')
+    const choices = new Choices('select',
+            {
+              searchEnabled: false,
+              removeItemButton: true,
+              itemSelectText: '',
+            });
+    for (let i = 0; i < customSelects.length; i++)
+    {
+      customSelects[i].addEventListener('addItem', function(event)
+      {
+        if (event.detail.value)
+        {
+          let parent = this.parentNode.parentNode
+          parent.classList.add('valid')
+          parent.classList.remove('invalid')
+        }
+        else
+        {
+          let parent = this.parentNode.parentNode
+          parent.classList.add('invalid')
+          parent.classList.remove('valid')
+        }
+      }, false);
+    }
+    deleteBtn.addEventListener("click", function(e)
+    {
+      e.preventDefault()
+      const deleteAll = document.querySelectorAll('.choices__button')
+      for (let i = 0; i < deleteAll.length; i++)
+      {
+        deleteAll[i].click();
+      }
+    });
+
+  </script>
+</body>
+
+</html>

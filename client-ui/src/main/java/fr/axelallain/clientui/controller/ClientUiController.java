@@ -15,12 +15,40 @@ public class ClientUiController {
     private BooksProxy booksProxy;
 
     @GetMapping("/")
-    public String home(Model model) {
+    public String index(Model model) {
 
         Iterable<Book> books = booksProxy.books();
 
         model.addAttribute("books", books);
 
-        return "home";
+        return "index";
+    }
+
+    @GetMapping("/ouvrages")
+    public String ouvrages(Model model) {
+
+        Iterable<Book> books = booksProxy.books();
+
+        model.addAttribute("books", books);
+
+        return "books";
+    }
+
+    @GetMapping("/prets")
+    public String prets(Model model) {
+
+        return "borrowings";
+    }
+
+    @GetMapping("/inscription")
+    public String inscription() {
+
+        return "signup";
+    }
+
+    @GetMapping("/connexion")
+    public String connexion() {
+
+        return "login";
     }
 }
