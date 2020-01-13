@@ -16,6 +16,7 @@
         <option value="$PROJECT_DIR$/eureka/pom.xml" />
         <option value="$PROJECT_DIR$/zuul/pom.xml" />
         <option value="$PROJECT_DIR$/springadmin/pom.xml" />
+        <option value="$PROJECT_DIR$/users/pom.xml" />
       </list>
     </option>
   </component>

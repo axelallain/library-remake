@@ -13,6 +13,7 @@
         <module name="config-server" />
         <module name="eureka" />
         <module name="springadmin" />
+        <module name="users" />
         <module name="zuul" />
       </profile>
     </annotationProcessing>
@@ -24,6 +25,7 @@
       <module name="config-server" target="11" />
       <module name="eureka" target="11" />
       <module name="springadmin" target="11" />
+      <module name="users" target="11" />
       <module name="zuul" target="11" />
     </bytecodeTargetLevel>
   </component>
@@ -36,6 +38,7 @@
       <module name="config-server" options="-parameters" />
       <module name="eureka" options="-parameters" />
       <module name="springadmin" options="-parameters" />
+      <module name="users" options="-parameters" />
       <module name="zuul" options="-parameters" />
     </option>
   </component>
