@@ -9,7 +9,6 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/books/pom.xml" />
-        <option value="$PROJECT_DIR$/borrowings/pom.xml" />
         <option value="$PROJECT_DIR$/batch/pom.xml" />
         <option value="$PROJECT_DIR$/client-ui/pom.xml" />
         <option value="$PROJECT_DIR$/config-server/pom.xml" />

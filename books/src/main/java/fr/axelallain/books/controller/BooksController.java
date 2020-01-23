@@ -6,6 +6,8 @@ import fr.axelallain.books.model.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.ws.rs.QueryParam;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -56,5 +58,11 @@ public class BooksController {
     public void booksDelete(@PathVariable int id) {
 
         booksDao.deleteById(id);
+    }
+
+    @GetMapping("/books/search")
+    public List<Book> findByNameContainingIgnoreCase(@QueryParam("name") String name) {
+
+        return booksDao.findByNameContainingIgnoreCase(name);
     }
 }

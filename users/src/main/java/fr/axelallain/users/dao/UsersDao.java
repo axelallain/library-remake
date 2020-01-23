@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UsersDao extends JpaRepository<User, Integer> {
 
-
+    User findByEmail(String email);
 }

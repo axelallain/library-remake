@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/batch/batch.iml" filepath="$PROJECT_DIR$/batch/batch.iml" />
       <module fileurl="file://$PROJECT_DIR$/books/books.iml" filepath="$PROJECT_DIR$/books/books.iml" />
-      <module fileurl="file://$PROJECT_DIR$/borrowings/borrowings.iml" filepath="$PROJECT_DIR$/borrowings/borrowings.iml" />
       <module fileurl="file://$PROJECT_DIR$/client-ui/client-ui.iml" filepath="$PROJECT_DIR$/client-ui/client-ui.iml" />
       <module fileurl="file://$PROJECT_DIR$/config-server/config-server.iml" filepath="$PROJECT_DIR$/config-server/config-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/config-server-repo/config-server-repo.iml" filepath="$PROJECT_DIR$/config-server-repo/config-server-repo.iml" />

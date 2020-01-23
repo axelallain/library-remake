@@ -7,6 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.ws.rs.QueryParam;
+import java.util.List;
 
 @Controller
 public class ClientUiController {
@@ -50,5 +54,15 @@ public class ClientUiController {
     public String connexion() {
 
         return "login";
+    }
+
+    @GetMapping("/recherche-ouvrages")
+    public String rechercheOuvrages(Model model, @QueryParam("name") String name) {
+
+        List<Book> books = booksProxy.findByNameContainingIgnoreCase(name);
+
+        model.addAttribute("books", books);
+
+        return "books";
     }
 }

@@ -8,7 +8,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="batch" />
         <module name="books" />
-        <module name="borrowings" />
         <module name="client-ui" />
         <module name="config-server" />
         <module name="eureka" />

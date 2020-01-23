@@ -22,6 +22,18 @@ public class UsersController {
         return new BCryptPasswordEncoder();
     }
 
+    @GetMapping("/users/{email}")
+    public User usersByEmail(@PathVariable String email) {
+
+        User user = usersDao.findByEmail(email);
+
+        if (user == null) {
+            throw new UserNotFoundException("The user with email " + email + " cannot be found");
+        }
+
+        return user;
+    }
+
     @GetMapping("/users")
     public Iterable<User> users() {
 
