@@ -34,7 +34,6 @@
       <thead>
       <tr>
         <th class="th-sm text-center">#</th>
-        <th class="th-sm">Disponible</th>
         <th class="th-sm">Nom</th>
         <th class="th-sm">Auteur</th>
         <th class="th-sm">Édition</th>
@@ -44,8 +43,10 @@
       <tbody>
       <tr th:each="book : ${books}">
         <td scope="row" th:text="${book.id}" class="text-center"></td>
-        <td th:text="${book.available ? 'Oui' : 'Non'}" class="truncate"></td>
         <td th:text="${book.name}" class="truncate"></td>
+        <td th:text="${book.author}" class="truncate"></td>
+        <td th:text="${book.publisher}" class="truncate"></td>
+        <td th:text="${#lists.size(book.copies)}" class="truncate"></td>
       </tr>
       </tbody>
     </table>

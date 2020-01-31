@@ -59,7 +59,7 @@ public class ClientUiController {
     @GetMapping("/recherche-ouvrages")
     public String rechercheOuvrages(Model model, @QueryParam("name") String name) {
 
-        List<Book> books = booksProxy.findByNameContainingIgnoreCase(name);
+        List<Book> books = booksProxy.findByNameLikeNoDuplicates(name);
 
         model.addAttribute("books", books);
 

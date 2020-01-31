@@ -21,5 +21,5 @@ public interface BooksProxy {
     Book booksById(@PathVariable("id") int id);
 
     @GetMapping(value = "/books/books/search")
-    List<Book> findByNameContainingIgnoreCase(@RequestParam("name") String name);
+    List<Book> findByNameLike(@RequestParam("name") String name);
 }

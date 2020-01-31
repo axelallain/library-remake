@@ -1,19 +1,27 @@
 package fr.axelallain.books.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
+@Table(name = "book")
 public class Book {
 
     @Id
     @GeneratedValue
     private int id;
 
+    @Column(name = "name")
     private String name;
 
-    private boolean available;
+    @Column(name = "author")
+    private String author;
+
+    @Column(name = "publisher")
+    private String publisher;
+
+    @OneToMany(mappedBy = "spot", cascade = CascadeType.ALL)
+    private Collection<Copy> copies;
 
     public Book() {
     }
@@ -34,20 +42,38 @@ public class Book {
         this.name = name;
     }
 
-    public boolean isAvailable() {
-        return available;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setAvailable(boolean available) {
-        this.available = available;
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public Collection<Copy> getCopies() {
+        return copies;
+    }
+
+    public void setCopies(Collection<Copy> copies) {
+        this.copies = copies;
     }
 
     @Override
     public String toString() {
-        return "Book{"+
-        "id=" + id +
-        ", name='"+ name + '\'' +
-        ", available='" + available +
-        '}';
+        return "Book{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", author='" + author + '\'' +
+                ", publisher='" + publisher + '\'' +
+                ", copies=" + copies +
+                '}';
     }
 }
