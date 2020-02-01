@@ -37,20 +37,23 @@
             <h3 class="panel-title text-center">Inscription</h3>
           </div>
           <div class="panel-body">
-            <form role="form">
+            <form th:action="@{/inscription}" method="POST">
               <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
                   <div class="form-group">
-                    <input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="Prénom">
+                    <input type="text" name="firstName" id="firstName" class="form-control input-sm" placeholder="Prénom">
                   </div>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6">
                   <div class="form-group">
-                    <input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Nom">
+                    <input type="text" name="lastName" id="lastName" class="form-control input-sm" placeholder="Nom">
                   </div>
                 </div>
               </div>
 
+              <div class="form-group">
+                <input type="text" name="number" id="number" class="form-control input-sm" placeholder="Numéro de membre">
+              </div>
               <div class="form-group">
                 <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Adresse email">
               </div>

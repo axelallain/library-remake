@@ -1,7 +1,10 @@
 package fr.axelallain.books.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "copy")
@@ -9,7 +12,7 @@ public class Copy {
 
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
 
     @Column(name = "available")
     private boolean available;
@@ -18,16 +21,16 @@ public class Copy {
     private Loan loan;
 
     @ManyToOne
-    private Collection<Book> books;
+    private Book book;
 
     public Copy() {
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -47,12 +50,12 @@ public class Copy {
         this.loan = loan;
     }
 
-    public Collection<Book> getBooks() {
-        return books;
+    public Book getBook() {
+        return book;
     }
 
-    public void setBooks(Collection<Book> books) {
-        this.books = books;
+    public void setBook(Book book) {
+        this.book = book;
     }
 
     @Override
@@ -61,7 +64,7 @@ public class Copy {
                 "id=" + id +
                 ", available=" + available +
                 ", loan=" + loan +
-                ", books=" + books +
+                ", book=" + book +
                 '}';
     }
 }

@@ -61,8 +61,8 @@ public class BooksController {
     }
 
     @GetMapping("/books/search")
-    public List<Book> findByNameLike(@QueryParam("name") String name) {
+    public List<Book> findByNameContainingIgnoreCase(@QueryParam("name") String name) {
 
-        return booksDao.findByNameLike(name);
+        return booksDao.findByNameContainingIgnoreCase(name);
     }
 }

@@ -11,6 +11,8 @@ public class User {
     @GeneratedValue
     private int id;
 
+    private String number;
+
     private String email;
 
     private String password;
@@ -28,6 +30,14 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     public String getEmail() {
@@ -66,6 +76,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
+                ", number='" + number + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +

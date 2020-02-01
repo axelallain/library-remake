@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface BooksRepositoryCustom {
 
-    List<Book> findByNameLike(String name);
+
 }

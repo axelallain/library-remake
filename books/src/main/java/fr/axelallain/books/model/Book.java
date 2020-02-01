@@ -1,7 +1,11 @@
 package fr.axelallain.books.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "book")
@@ -9,7 +13,7 @@ public class Book {
 
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
 
     @Column(name = "name")
     private String name;
@@ -20,17 +24,17 @@ public class Book {
     @Column(name = "publisher")
     private String publisher;
 
-    @OneToMany(mappedBy = "spot", cascade = CascadeType.ALL)
-    private Collection<Copy> copies;
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
+    private List<Copy> copies;
 
     public Book() {
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -58,11 +62,11 @@ public class Book {
         this.publisher = publisher;
     }
 
-    public Collection<Copy> getCopies() {
+    public List<Copy> getCopies() {
         return copies;
     }
 
-    public void setCopies(Collection<Copy> copies) {
+    public void setCopies(List<Copy> copies) {
         this.copies = copies;
     }
 

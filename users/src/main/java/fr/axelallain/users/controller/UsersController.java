@@ -22,13 +22,13 @@ public class UsersController {
         return new BCryptPasswordEncoder();
     }
 
-    @GetMapping("/users/{email}")
-    public User usersByEmail(@PathVariable String email) {
+    @GetMapping("/users/{number}")
+    public User findByNumber(@PathVariable String number) {
 
-        User user = usersDao.findByEmail(email);
+        User user = usersDao.findByNumber(number);
 
         if (user == null) {
-            throw new UserNotFoundException("The user with email " + email + " cannot be found");
+            throw new UserNotFoundException("The user with number " + number + " cannot be found");
         }
 
         return user;

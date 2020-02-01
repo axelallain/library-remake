@@ -10,7 +10,4 @@ import java.util.List;
 public interface BooksDao extends JpaRepository<Book, Integer>, BooksRepositoryCustom {
 
     List<Book> findByNameContainingIgnoreCase(String name);
-
-    @Override
-    List<Book> findByNameLikeNoDuplicates(String name);
 }

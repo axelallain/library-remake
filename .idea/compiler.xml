@@ -12,7 +12,6 @@
         <module name="config-server" />
         <module name="eureka" />
         <module name="springadmin" />
-        <module name="users" />
         <module name="zuul" />
       </profile>
     </annotationProcessing>
