@@ -1,5 +1,9 @@
 package fr.axelallain.clientui.controller;
 
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectReader;
 import fr.axelallain.clientui.model.Book;
 import fr.axelallain.clientui.proxy.BooksProxy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.QueryParam;
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -63,7 +69,7 @@ public class ClientUiController {
     }
 
     @GetMapping("/recherche-ouvrages")
-    public String rechercheOuvrages(Model model, @QueryParam("name") String name) {
+    public String rechercheOuvrages(Model model, @QueryParam("name") String name) throws IOException {
 
         List<Book> books = booksProxy.findByNameContainingIgnoreCase(name);
 

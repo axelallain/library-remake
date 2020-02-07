@@ -1,10 +1,8 @@
 package fr.axelallain.books.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.List;
 
 @Entity
 @Table(name = "copy")
@@ -21,6 +19,7 @@ public class Copy {
     private Loan loan;
 
     @ManyToOne
+    @JsonBackReference
     private Book book;
 
     public Copy() {
