@@ -1,5 +1,7 @@
 package fr.axelallain.books.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -27,6 +29,8 @@ public class Loan {
     @OneToOne
     private Copy copy;
 
+    private String test;
+
     public Loan() {
     }
 
@@ -36,6 +40,14 @@ public class Loan {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Date getStartingDate() {
@@ -62,13 +74,23 @@ public class Loan {
         this.copy = copy;
     }
 
+    public String getTest() {
+        return test;
+    }
+
+    public void setTest(String test) {
+        this.test = test;
+    }
+
     @Override
     public String toString() {
         return "Loan{" +
                 "id=" + id +
+                ", status='" + status + '\'' +
                 ", startingDate=" + startingDate +
                 ", endingDate=" + endingDate +
                 ", copy=" + copy +
+                ", test='" + test + '\'' +
                 '}';
     }
 }

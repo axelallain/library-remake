@@ -33,16 +33,20 @@
     <table id="dtBasicExample" class="table table-striped table-bordered table-sm table-responsive-sm" cellspacing="0" width="100%">
       <thead>
       <tr>
-        <th class="th-sm"></th>
         <th class="th-sm text-center">#</th>
         <th class="th-sm">Livre emprunté</th>
-        <th class="th-sm">Édition</th>
         <th class="th-sm">Début de l'emprunt</th>
         <th class="th-sm">Fin de l'emprunt</th>
+        <th class="th-sm"></th>
       </tr>
       </thead>
       <tbody>
-      <tr>
+      <tr th:each="loan : ${loans}">
+        <td scope="row" th:text="${loan.id}" class="text-center"></td>
+        <td th:text="${loan.copy.id}" class="truncate"></td>
+        <td th:text="${#dates.format(loan.startingDate, 'dd MMM yyyy')}" class="truncate"></td>
+        <td th:text="${#dates.format(loan.endingDate, 'dd MMM yyyy')}" class="truncate"></td>
+
         <td class="text-center">
           <a data-toggle="modal" th:attr="data-target='#basicExampleModal'">Prolonger</a>
 
@@ -62,18 +66,13 @@
                 </div>
                 <div class="modal-footer justify-content-center">
                   <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Annuler</button>
-                  <a href="/" class="btn btn-primary btn-sm">Valider</a>
+                  <a th:action="@{'/loan/{id}/extension'(id=${loan.id})}" method="PUT" class="btn btn-primary btn-sm">Valider</a>
                 </div>
               </div>
             </div>
           </div>
-
         </td>
-        <td scope="row" class="text-center"></td>
-        <td class="truncate"></td>
-        <td class="truncate"></td>
-        <td class="truncate"></td>
-        <td class="truncate"></td>
+
       </tr>
       </tbody>
     </table>

@@ -10,7 +10,7 @@ public class Copy {
 
     private Loan loan;
 
-    private Collection<Book> books;
+    private Book book;
 
     public Copy() {
     }
@@ -39,12 +39,12 @@ public class Copy {
         this.loan = loan;
     }
 
-    public Collection<Book> getBooks() {
-        return books;
+    public Book getBook() {
+        return book;
     }
 
-    public void setBooks(Collection<Book> books) {
-        this.books = books;
+    public void setBook(Book book) {
+        this.book = book;
     }
 
     @Override
@@ -53,7 +53,7 @@ public class Copy {
                 "id=" + id +
                 ", available=" + available +
                 ", loan=" + loan +
-                ", books=" + books +
+                ", book=" + book +
                 '}';
     }
 }

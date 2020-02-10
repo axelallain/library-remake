@@ -5,11 +5,14 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 import fr.axelallain.clientui.model.Book;
+import fr.axelallain.clientui.model.Loan;
 import fr.axelallain.clientui.proxy.BooksProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -45,7 +48,11 @@ public class ClientUiController {
     }
 
     @GetMapping("/prets")
-    public String prets(Model model) {
+    public String prets(Model model, ClientUiTokenController clientUiTokenController, HttpServletRequest request) {
+
+        List<Loan> loans = booksProxy.findByTest(clientUiTokenController.currentUserId(request));
+
+        model.addAttribute("loans", loans);
 
         return "borrowings";
     }
@@ -76,5 +83,13 @@ public class ClientUiController {
         model.addAttribute("books", books);
 
         return "books";
+    }
+
+    @PutMapping("/loan/{id}/extension")
+    public String extensionDate(@PathVariable int id) {
+
+        booksProxy.extensionDate(id);
+
+        return "redirect:/prets";
     }
 }

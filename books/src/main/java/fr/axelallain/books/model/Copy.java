@@ -1,6 +1,9 @@
 package fr.axelallain.books.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 
@@ -16,6 +19,7 @@ public class Copy {
     private boolean available;
 
     @OneToOne(cascade = CascadeType.ALL)
+    @JsonIgnore
     private Loan loan;
 
     @ManyToOne

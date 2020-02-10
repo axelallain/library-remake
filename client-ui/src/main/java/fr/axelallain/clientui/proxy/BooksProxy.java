@@ -1,13 +1,16 @@
 package fr.axelallain.clientui.proxy;
 
 import fr.axelallain.clientui.model.Book;
+import fr.axelallain.clientui.model.Loan;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.ws.rs.QueryParam;
+import java.util.Date;
 import java.util.List;
 
 @FeignClient(name = "zuul")
@@ -22,4 +25,10 @@ public interface BooksProxy {
 
     @GetMapping(value = "/books/books/search")
     List<Book> findByNameContainingIgnoreCase(@RequestParam("name") String name);
+
+    @GetMapping("/books/loan/user/{test}")
+    public List<Loan> findByTest(@PathVariable String test);
+
+    @PutMapping("/books/loan/{id}/extension")
+    public void extensionDate(@PathVariable int id);
 }
