@@ -8,7 +8,9 @@ import java.util.Optional;
 
 public interface LoanDao extends JpaRepository<Loan, Integer> {
 
-    List<Loan> findByTest(String test);
+    List<Loan> findByTokenuserid(String tokenuserid);
 
     Loan findById(int id);
+
+    List<Loan> findAll();
 }

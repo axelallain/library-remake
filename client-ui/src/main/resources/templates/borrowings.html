@@ -48,7 +48,7 @@
         <td th:text="${#dates.format(loan.endingDate, 'dd MMM yyyy')}" class="truncate"></td>
 
         <td class="text-center">
-          <a data-toggle="modal" th:attr="data-target='#basicExampleModal'">Prolonger</a>
+          <a th:unless="${loan.extended}" data-toggle="modal" th:attr="data-target='#basicExampleModal'">Prolonger</a>
 
           <!-- Renew confirmation modal -->
           <div class="modal fade" th:id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -66,7 +66,9 @@
                 </div>
                 <div class="modal-footer justify-content-center">
                   <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Annuler</button>
-                  <a th:action="@{'/loan/{id}/extension'(id=${loan.id})}" method="PUT" class="btn btn-primary btn-sm">Valider</a>
+                  <form th:action="@{'/loan/{id}/extension'(id=${loan.id})}" method="POST">
+                    <input type="submit" value="Valider" class="btn btn-primary btn-sm">
+                  </form>
                 </div>
               </div>
             </div>

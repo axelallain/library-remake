@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
 import javax.servlet.ServletException;
@@ -50,7 +51,7 @@ public class ClientUiController {
     @GetMapping("/prets")
     public String prets(Model model, ClientUiTokenController clientUiTokenController, HttpServletRequest request) {
 
-        List<Loan> loans = booksProxy.findByTest(clientUiTokenController.currentUserId(request));
+        List<Loan> loans = booksProxy.findByTokenuserid(clientUiTokenController.currentUserId(request));
 
         model.addAttribute("loans", loans);
 
@@ -85,7 +86,7 @@ public class ClientUiController {
         return "books";
     }
 
-    @PutMapping("/loan/{id}/extension")
+    @PostMapping("/loan/{id}/extension")
     public String extensionDate(@PathVariable int id) {
 
         booksProxy.extensionDate(id);

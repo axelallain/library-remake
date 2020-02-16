@@ -2,17 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f8984ab-ce77-4ed5-a0f1-cdd95c8b7ca3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/controller/LoanController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_mail_jakarta_mail_1_6_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_mail_2_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/SchedulingTasks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/configuration/MailConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/model/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/model/Copy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/model/Loan.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/proxy/BooksProxy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/batch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/batch/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/BatchApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/BatchApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/controller/LoanController.java" beforeDir="false" afterPath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/controller/LoanController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/dao/LoanDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/dao/LoanDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/model/Copy.java" beforeDir="false" afterPath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/model/Copy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/model/Loan.java" beforeDir="false" afterPath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/model/Loan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/proxy/ClientuiProxy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-ui/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/ClientUiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/ClientUiApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/controller/ClientUiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/controller/ClientUiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/controller/ClientUiTokenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/controller/ClientUiTokenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/model/Copy.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/model/Copy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/model/Loan.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/model/Loan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/proxy/BooksProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/proxy/BooksProxy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client-ui/src/main/resources/templates/borrowings.html" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/resources/templates/borrowings.html" afterDir="false" />
@@ -48,23 +52,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/dao/LoanDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="26" lean-forward="true" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/controller/LoanController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="38" column="47" lean-forward="true" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
+            <state relative-caret-position="384">
+              <caret line="37" column="25" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -73,40 +65,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.2.jdk/Contents/Home/lib/src.zip!/java.base/jdk/internal/reflect/NativeMethodAccessorImpl.java">
+        <entry file="file://$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/configuration/MailConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
-              <caret line="68" column="33" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/5.2.2.RELEASE/spring-aop-5.2.2.RELEASE.jar!/org/springframework/aop/framework/JdkDynamicAopProxy.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
-              <caret line="103" selection-start-line="103" selection-end-line="103" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/5.2.2.RELEASE/spring-aop-5.2.2.RELEASE.jar!/org/springframework/aop/support/AopUtils.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="76" selection-start-line="76" selection-end-line="76" />
-              <folding>
-                <element signature="e#3159#3160#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/proxy/BooksProxy.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="45" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
+            <state relative-caret-position="420">
+              <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -115,22 +77,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/controller/ClientUiController.java">
+        <entry file="file://$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/SchedulingTasks.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="92" column="33" selection-start-line="92" selection-start-column="33" selection-end-line="92" selection-end-column="33" />
+            <state relative-caret-position="489">
+              <caret line="51" column="37" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client-ui/src/main/resources/templates/borrowings.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="68" column="129" selection-start-line="68" selection-start-column="129" selection-end-line="68" selection-end-column="129" />
             </state>
           </provider>
         </entry>
@@ -168,15 +121,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/users/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/users/src/main/java/fr/axelallain/users/UsersApplication.java" />
-        <option value="$PROJECT_DIR$/config-server-repo/users.properties" />
-        <option value="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/configuration/PasswordEncoder.java" />
-        <option value="$PROJECT_DIR$/zuul/src/main/java/fr/axelallain/zuul/configuration/WebSecurityConfig.java" />
-        <option value="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/configuration/security/SecurityConfig.java" />
-        <option value="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/dao/BooksDaoImpl.java" />
-        <option value="$PROJECT_DIR$/client-ui/src/main/resources/templates/index.html" />
-        <option value="$PROJECT_DIR$/books/pom.xml" />
         <option value="$PROJECT_DIR$/users/src/main/java/fr/axelallain/authentication/SecurityCredentialsConfig.java" />
         <option value="$PROJECT_DIR$/users/src/main/java/fr/axelallain/authentication/SecurityCrendentialsConfig.java" />
         <option value="$PROJECT_DIR$/users/pom.xml" />
@@ -205,19 +149,28 @@
         <option value="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/ClientUiApplication.java" />
         <option value="$PROJECT_DIR$/client-ui/pom.xml" />
         <option value="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/controller/BooksController.java" />
-        <option value="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/controller/ClientUiTokenController.java" />
         <option value="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/dao/LoanRepositoryCustom.java" />
         <option value="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/dao/LoanRepositoryCustomImpl.java" />
         <option value="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/proxy/ClientuiProxy.java" />
         <option value="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/model/Copy.java" />
-        <option value="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/model/Loan.java" />
-        <option value="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/model/Loan.java" />
         <option value="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/model/Copy.java" />
         <option value="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/util/ExtensionDate.java" />
+        <option value="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/configuration/MailConfig.java" />
+        <option value="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/controller/BatchController.java" />
+        <option value="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/BatchApplication.java" />
         <option value="$PROJECT_DIR$/client-ui/src/main/resources/templates/borrowings.html" />
-        <option value="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/controller/ClientUiController.java" />
-        <option value="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/proxy/BooksProxy.java" />
+        <option value="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/model/Copy.java" />
+        <option value="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/model/Book.java" />
+        <option value="$PROJECT_DIR$/batch/pom.xml" />
+        <option value="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/proxy/BooksProxy.java" />
         <option value="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/dao/LoanDao.java" />
+        <option value="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/proxy/BooksProxy.java" />
+        <option value="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/controller/ClientUiController.java" />
+        <option value="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/controller/ClientUiTokenController.java" />
+        <option value="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/model/Loan.java" />
+        <option value="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/model/Loan.java" />
+        <option value="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/model/Loan.java" />
+        <option value="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/SchedulingTasks.java" />
         <option value="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/controller/LoanController.java" />
       </list>
     </option>
@@ -242,11 +195,10 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1" />
-    <option name="y" value="57" />
-    <option name="width" value="1626" />
-    <option name="height" value="993" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1680" />
+    <option name="height" value="1027" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -255,9 +207,88 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
+            <path>
+              <item name="library" type="b2602c69:ProjectViewProjectNode" />
+              <item name="batch" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="library" type="b2602c69:ProjectViewProjectNode" />
+              <item name="batch" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="library" type="b2602c69:ProjectViewProjectNode" />
+              <item name="batch" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="library" type="b2602c69:ProjectViewProjectNode" />
+              <item name="batch" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="library" type="b2602c69:ProjectViewProjectNode" />
+              <item name="batch" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="fr" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="library" type="b2602c69:ProjectViewProjectNode" />
+              <item name="batch" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="fr" type="462c0819:PsiDirectoryNode" />
+              <item name="axelallain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="library" type="b2602c69:ProjectViewProjectNode" />
+              <item name="batch" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="fr" type="462c0819:PsiDirectoryNode" />
+              <item name="axelallain" type="462c0819:PsiDirectoryNode" />
+              <item name="batch" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="library" type="b2602c69:ProjectViewProjectNode" />
+              <item name="batch" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="fr" type="462c0819:PsiDirectoryNode" />
+              <item name="axelallain" type="462c0819:PsiDirectoryNode" />
+              <item name="batch" type="462c0819:PsiDirectoryNode" />
+              <item name="configuration" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="library" type="b2602c69:ProjectViewProjectNode" />
+              <item name="batch" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="fr" type="462c0819:PsiDirectoryNode" />
+              <item name="axelallain" type="462c0819:PsiDirectoryNode" />
+              <item name="batch" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="library" type="b2602c69:ProjectViewProjectNode" />
+              <item name="batch" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
             <path>
               <item name="library" type="b2602c69:ProjectViewProjectNode" />
               <item name="books" type="462c0819:PsiDirectoryNode" />
@@ -342,17 +373,6 @@
             </path>
             <path>
               <item name="library" type="b2602c69:ProjectViewProjectNode" />
-              <item name="books" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="fr" type="462c0819:PsiDirectoryNode" />
-              <item name="axelallain" type="462c0819:PsiDirectoryNode" />
-              <item name="books" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="library" type="b2602c69:ProjectViewProjectNode" />
               <item name="client-ui" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -411,12 +431,33 @@
               <item name="clientui" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="library" type="b2602c69:ProjectViewProjectNode" />
+              <item name="client-ui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="fr" type="462c0819:PsiDirectoryNode" />
+              <item name="axelallain" type="462c0819:PsiDirectoryNode" />
+              <item name="clientui" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="library" type="b2602c69:ProjectViewProjectNode" />
+              <item name="client-ui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="fr" type="462c0819:PsiDirectoryNode" />
+              <item name="axelallain" type="462c0819:PsiDirectoryNode" />
+              <item name="clientui" type="462c0819:PsiDirectoryNode" />
+              <item name="proxy" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -427,7 +468,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1581342361604" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1581773932481" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -477,7 +518,7 @@
     </option>
     <option name="contentProportion" value="0.22054054" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.BatchApplication">
     <configuration name="BatchApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="batch" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="fr.axelallain.batch.BatchApplication" />
@@ -543,17 +584,19 @@
       <workItem from="1576895011184" duration="88951000" />
       <workItem from="1578492080358" duration="2428000" />
       <workItem from="1578859771716" duration="13532000" />
-      <workItem from="1579383035102" duration="125312000" />
+      <workItem from="1579383035102" duration="145663000" />
+      <workItem from="1581778251332" duration="3657000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="231930000" />
+    <option name="totallyTimeSpent" value="255938000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
+    <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49923897" visible="true" weight="0.2032967" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49923897" visible="true" weight="0.20573871" />
       <window_info id="Structure" order="1" sideWeight="0.50076103" side_tool="true" weight="0.21991481" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -571,7 +614,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3253886" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32513368" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Spring" order="12" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32953367" />
@@ -593,156 +636,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/model/Borrowing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/users/src/main/resources/bootstrap.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="43" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/users/src/main/java/fr/axelallain/authentication/SecurityCredentialsConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="21" column="41" lean-forward="true" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3082#3083#0" expanded="true" />
-            <element signature="e#3120#3121#0" expanded="true" />
-            <element signature="e#3184#3185#0" expanded="true" />
-            <element signature="e#3234#3235#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/users/src/main/java/fr/axelallain/authentication/SecurityCrendentialsConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/users/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="21" column="18" lean-forward="true" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/model/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="26" lean-forward="true" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-          <folding>
-            <element signature="e#277#278#0" expanded="true" />
-            <element signature="e#302#303#0" expanded="true" />
-            <element signature="e#335#336#0" expanded="true" />
-            <element signature="e#363#364#0" expanded="true" />
-            <element signature="e#396#397#0" expanded="true" />
-            <element signature="e#425#426#0" expanded="true" />
-            <element signature="e#469#470#0" expanded="true" />
-            <element signature="e#505#506#0" expanded="true" />
-            <element signature="e#537#538#0" expanded="true" />
-            <element signature="e#565#566#0" expanded="true" />
-            <element signature="e#607#608#0" expanded="true" />
-            <element signature="e#641#642#0" expanded="true" />
-            <element signature="e#676#677#0" expanded="true" />
-            <element signature="e#707#708#0" expanded="true" />
-            <element signature="e#755#756#0" expanded="true" />
-            <element signature="e#795#796#0" expanded="true" />
-            <element signature="e#831#832#0" expanded="true" />
-            <element signature="e#863#864#0" expanded="true" />
-            <element signature="e#913#914#0" expanded="true" />
-            <element signature="e#955#956#0" expanded="true" />
-            <element signature="e#990#991#0" expanded="true" />
-            <element signature="e#1021#1022#0" expanded="true" />
-            <element signature="e#1069#1070#0" expanded="true" />
-            <element signature="e#1109#1110#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/users/src/main/java/fr/axelallain/users/dao/UsersDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="36" lean-forward="true" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/users/src/main/java/fr/axelallain/users/model/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1082">
-          <caret line="75" column="18" selection-start-line="75" selection-start-column="18" selection-end-line="75" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#414#415#0" expanded="true" />
-            <element signature="e#439#440#0" expanded="true" />
-            <element signature="e#472#473#0" expanded="true" />
-            <element signature="e#500#501#0" expanded="true" />
-            <element signature="e#533#534#0" expanded="true" />
-            <element signature="e#562#563#0" expanded="true" />
-            <element signature="e#606#607#0" expanded="true" />
-            <element signature="e#642#643#0" expanded="true" />
-            <element signature="e#674#675#0" expanded="true" />
-            <element signature="e#702#703#0" expanded="true" />
-            <element signature="e#744#745#0" expanded="true" />
-            <element signature="e#778#779#0" expanded="true" />
-            <element signature="e#813#814#0" expanded="true" />
-            <element signature="e#844#845#0" expanded="true" />
-            <element signature="e#892#893#0" expanded="true" />
-            <element signature="e#932#933#0" expanded="true" />
-            <element signature="e#968#969#0" expanded="true" />
-            <element signature="e#1000#1001#0" expanded="true" />
-            <element signature="e#1050#1051#0" expanded="true" />
-            <element signature="e#1092#1093#0" expanded="true" />
-            <element signature="e#1127#1128#0" expanded="true" />
-            <element signature="e#1158#1159#0" expanded="true" />
-            <element signature="e#1206#1207#0" expanded="true" />
-            <element signature="e#1246#1247#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/configuration/security/UserPrincipal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="33" column="32" lean-forward="true" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#766#767#0" expanded="true" />
-            <element signature="e#801#802#0" expanded="true" />
-            <element signature="e#850#851#0" expanded="true" />
-            <element signature="e#888#889#0" expanded="true" />
-            <element signature="e#1040#1041#0" expanded="true" />
-            <element signature="e#1067#1068#0" expanded="true" />
-            <element signature="e#1124#1125#0" expanded="true" />
-            <element signature="e#1151#1152#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/configuration/security/SecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client-ui/src/main/resources/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="398">
@@ -767,33 +660,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/proxy/UsersProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/configuration/security/MyUserDetailsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/model/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/proxy/UsersProxy.java" />
+    <entry file="file://$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/configuration/security/MyUserDetailsService.java" />
+    <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/model/test.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.2.2.RELEASE/spring-boot-autoconfigure-2.2.2.RELEASE.jar!/org/springframework/boot/autoconfigure/orm/jpa/JpaBaseConfiguration.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
@@ -801,16 +670,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/utils/ModelMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/utils/ModelMapper.java" />
     <entry file="file://$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/configuration/KeycloakConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -851,16 +711,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/util/CopySerializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="48" lean-forward="true" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/util/CopySerializer.java" />
     <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/dao/BooksRepositoryCustom.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -878,53 +729,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client-ui/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="25" column="57" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/proxy/ClientuiProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/dao/LoanRepositoryCustomImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="20" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/dao/LoanRepositoryCustom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="43" lean-forward="true" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/dao/BooksDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="68" selection-start-line="9" selection-start-column="68" selection-end-line="9" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/proxy/ClientuiProxy.java" />
+    <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/dao/LoanRepositoryCustomImpl.java" />
+    <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/dao/LoanRepositoryCustom.java" />
     <entry file="file://$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/ClientUiApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -949,88 +756,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/model/Book.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="14" column="36" lean-forward="true" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
-          <folding>
-            <element signature="e#845#846#0" expanded="true" />
-            <element signature="e#874#875#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client-ui/src/main/resources/templates/books.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
           <caret line="45" column="57" selection-start-line="45" selection-start-column="57" selection-end-line="45" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/controller/ClientUiTokenController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="52" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/controller/BooksController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="573">
-          <caret line="67" column="1" lean-forward="true" selection-start-line="67" selection-start-column="1" selection-end-line="67" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/model/Copy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="46" column="25" lean-forward="true" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
-          <folding>
-            <element signature="e#643#644#0" expanded="true" />
-            <element signature="e#670#671#0" expanded="true" />
-            <element signature="e#708#709#0" expanded="true" />
-            <element signature="e#740#741#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/model/Loan.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="78" column="50" lean-forward="true" selection-start-line="78" selection-start-column="50" selection-end-line="78" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#447#448#0" expanded="true" />
-            <element signature="e#472#473#0" expanded="true" />
-            <element signature="e#505#506#0" expanded="true" />
-            <element signature="e#533#534#0" expanded="true" />
-            <element signature="e#566#567#0" expanded="true" />
-            <element signature="e#595#596#0" expanded="true" />
-            <element signature="e#639#640#0" expanded="true" />
-            <element signature="e#675#676#0" expanded="true" />
-            <element signature="e#712#713#0" expanded="true" />
-            <element signature="e#747#748#0" expanded="true" />
-            <element signature="e#801#802#0" expanded="true" />
-            <element signature="e#849#850#0" expanded="true" />
-            <element signature="e#884#885#0" expanded="true" />
-            <element signature="e#917#918#0" expanded="true" />
-            <element signature="e#967#968#0" expanded="true" />
-            <element signature="e#1011#1012#0" expanded="true" />
-            <element signature="e#1040#1041#0" expanded="true" />
-            <element signature="e#1067#1068#0" expanded="true" />
-            <element signature="e#1105#1106#0" expanded="true" />
-            <element signature="e#1137#1138#0" expanded="true" />
-            <element signature="e#1170#1171#0" expanded="true" />
-            <element signature="e#1199#1200#0" expanded="true" />
-            <element signature="e#1243#1244#0" expanded="true" />
-            <element signature="e#1279#1280#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1040,63 +769,6 @@
           <caret line="22" column="22" lean-forward="true" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client-ui/src/main/resources/templates/borrowings.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="68" column="129" selection-start-line="68" selection-start-column="129" selection-end-line="68" selection-end-column="129" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/model/Loan.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/proxy/BooksProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="45" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/dao/LoanDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="26" lean-forward="true" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/controller/ClientUiController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="92" column="33" selection-start-line="92" selection-start-column="33" selection-end-line="92" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/5.2.2.RELEASE/spring-aop-5.2.2.RELEASE.jar!/org/springframework/aop/support/AopUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="76" selection-start-line="76" selection-end-line="76" />
-          <folding>
-            <element signature="e#3159#3160#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1115,10 +787,223 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/util/ExtensionDate.java">
+    <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/util/ExtensionDate.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/5.2.2.RELEASE/spring-aop-5.2.2.RELEASE.jar!/org/springframework/aop/support/AopUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="76" selection-start-line="76" selection-end-line="76" />
+          <folding>
+            <element signature="e#3159#3160#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/controller/BatchController.java" />
+    <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/controller/BooksController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="573">
+          <caret line="67" column="1" lean-forward="true" selection-start-line="67" selection-start-column="1" selection-end-line="67" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/BatchApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="10" column="31" lean-forward="true" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client-ui/src/main/resources/templates/borrowings.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="45" column="35" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/model/Copy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="35" column="5" lean-forward="true" selection-end-line="59" />
+          <folding>
+            <element signature="e#643#644#0" expanded="true" />
+            <element signature="e#670#671#0" expanded="true" />
+            <element signature="e#708#709#0" expanded="true" />
+            <element signature="e#740#741#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/model/Book.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="14" column="36" lean-forward="true" selection-end-line="70" />
+          <folding>
+            <element signature="e#845#846#0" expanded="true" />
+            <element signature="e#874#875#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/model/Book.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="28" lean-forward="true" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+          <folding>
+            <element signature="e#845#846#0" expanded="true" />
+            <element signature="e#874#875#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/model/Copy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="19" selection-end-column="46" />
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#643#644#0" expanded="true" />
+            <element signature="e#670#671#0" expanded="true" />
+            <element signature="e#708#709#0" expanded="true" />
+            <element signature="e#740#741#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/batch/src/main/resources/bootstrap.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/batch/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="21" lean-forward="true" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client-ui/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-489">
+          <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="46" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/dao/BooksDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="68" selection-start-line="9" selection-start-column="68" selection-end-line="9" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/proxy/BooksProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="67" lean-forward="true" selection-start-line="26" selection-start-column="67" selection-end-line="26" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/controller/ClientUiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="53" column="104" lean-forward="true" selection-start-line="53" selection-start-column="104" selection-end-line="53" selection-end-column="104" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/dao/LoanDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="53" lean-forward="true" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/controller/ClientUiTokenController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/proxy/BooksProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="25" lean-forward="true" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/model/Loan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="91" column="5" lean-forward="true" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1578#1579#0" expanded="true" />
+            <element signature="e#1615#1616#0" expanded="true" />
+            <element signature="e#1675#1676#0" expanded="true" />
+            <element signature="e#1727#1728#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/model/Loan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="102" column="45" lean-forward="true" selection-start-line="102" selection-start-column="45" selection-end-line="102" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1964#1965#0" expanded="true" />
+            <element signature="e#2001#2002#0" expanded="true" />
+            <element signature="e#2061#2062#0" expanded="true" />
+            <element signature="e#2113#2114#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/model/Loan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="91" column="5" lean-forward="true" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1581#1582#0" expanded="true" />
+            <element signature="e#1618#1619#0" expanded="true" />
+            <element signature="e#1678#1679#0" expanded="true" />
+            <element signature="e#1730#1731#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/configuration/MailConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/SchedulingTasks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="51" column="37" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1127,8 +1012,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/controller/LoanController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="47" lean-forward="true" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
+        <state relative-caret-position="384">
+          <caret line="37" column="25" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

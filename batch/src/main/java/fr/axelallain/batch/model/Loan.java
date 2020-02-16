@@ -1,35 +1,23 @@
-package fr.axelallain.books.model;
+package fr.axelallain.batch.model;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
 import java.util.Date;
 
-@Entity
-@Table(name = "loan")
 public class Loan {
 
-    @Id
-    @GeneratedValue
     private int id;
 
-    @Column(name = "status", insertable = false)
-    private String status = "Started";
+    private String status;
 
-    @Column(name = "startingDate")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date startingDate;
 
-    @Column(name = "endingDate")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date endingDate;
 
-    @Column(name = "extended")
-    private boolean extended = false;
+    private boolean extended;
 
-    @OneToOne
     private Copy copy;
 
     private String tokenuserid;
@@ -117,3 +105,4 @@ public class Loan {
                 '}';
     }
 }
+

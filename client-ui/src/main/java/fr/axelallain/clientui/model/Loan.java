@@ -16,9 +16,13 @@ public class Loan {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date endingDate;
 
+    private boolean extended;
+
     private Copy copy;
 
-    private String test;
+    private String tokenuserid;
+
+    private String tokenuseremail;
 
     public Loan() {
     }
@@ -55,6 +59,14 @@ public class Loan {
         this.endingDate = endingDate;
     }
 
+    public boolean isExtended() {
+        return extended;
+    }
+
+    public void setExtended(boolean extended) {
+        this.extended = extended;
+    }
+
     public Copy getCopy() {
         return copy;
     }
@@ -63,12 +75,20 @@ public class Loan {
         this.copy = copy;
     }
 
-    public String getTest() {
-        return test;
+    public String getTokenuserid() {
+        return tokenuserid;
     }
 
-    public void setTest(String test) {
-        this.test = test;
+    public void setTokenuserid(String tokenuserid) {
+        this.tokenuserid = tokenuserid;
+    }
+
+    public String getTokenuseremail() {
+        return tokenuseremail;
+    }
+
+    public void setTokenuseremail(String tokenuseremail) {
+        this.tokenuseremail = tokenuseremail;
     }
 
     @Override
@@ -78,8 +98,10 @@ public class Loan {
                 ", status='" + status + '\'' +
                 ", startingDate=" + startingDate +
                 ", endingDate=" + endingDate +
+                ", extended=" + extended +
                 ", copy=" + copy +
-                ", test='" + test + '\'' +
+                ", tokenuserid='" + tokenuserid + '\'' +
+                ", tokenuseremail='" + tokenuseremail + '\'' +
                 '}';
     }
 }
