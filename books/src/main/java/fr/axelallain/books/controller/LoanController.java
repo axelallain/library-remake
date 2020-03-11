@@ -6,6 +6,7 @@ import fr.axelallain.books.exception.LoanNotFoundException;
 import fr.axelallain.books.model.Loan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
@@ -56,8 +57,9 @@ public class LoanController {
         }
     }
 
-    @PostMapping("/loan")
-    public void loanAdd(Loan loan) {
+    @PutMapping("/loan")
+    @Transactional
+    public void loanAdd(@RequestBody Loan loan) {
 
         loanDao.save(loan);
     }

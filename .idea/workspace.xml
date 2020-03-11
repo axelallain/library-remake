@@ -2,46 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f8984ab-ce77-4ed5-a0f1-cdd95c8b7ca3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_dbcp2_2_7_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_7_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_postgresql_postgresql_42_2_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_extras_thymeleaf_extras_springsecurity5_3_0_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/exception/LoanExtensionException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/exception/LoanNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/configuration/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/exception/UserNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client-ui/src/main/resources/static/css/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client-ui/src/main/resources/static/img/logo2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/batch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/batch/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/BatchApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/BatchApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/SchedulingTasks.java" beforeDir="false" afterPath="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/SchedulingTasks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/model/Loan.java" beforeDir="false" afterPath="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/model/Loan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/proxy/BooksProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/proxy/BooksProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/books/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/books/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/controller/BooksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/controller/BooksController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/controller/LoanController.java" beforeDir="false" afterPath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/controller/LoanController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/dao/LoanDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/dao/LoanDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/model/Copy.java" beforeDir="false" afterPath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/model/Copy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/model/Loan.java" beforeDir="false" afterPath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/model/Loan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/books/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/books/src/main/resources/bootstrap.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-ui/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/controller/ClientUiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/controller/ClientUiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/controller/ClientUiTokenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/controller/ClientUiTokenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/model/Loan.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/model/Loan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/proxy/BooksProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/proxy/BooksProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-ui/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/resources/bootstrap.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-ui/src/main/resources/static/css/books.css" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/resources/static/css/books.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-ui/src/main/resources/static/css/borrowings.css" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/resources/static/css/borrowings.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-ui/src/main/resources/static/css/material-kit.css" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/resources/static/css/material-kit.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-ui/src/main/resources/static/img/favicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/resources/static/img/favicon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-ui/src/main/resources/static/img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/resources/static/img/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-ui/src/main/resources/templates/books.html" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/resources/templates/books.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-ui/src/main/resources/templates/borrowings.html" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/resources/templates/borrowings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-ui/src/main/resources/templates/fragments/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/resources/templates/fragments/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-ui/src/main/resources/templates/fragments/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/resources/templates/fragments/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-ui/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul/src/main/java/fr/axelallain/zuul/ZuulApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/zuul/src/main/java/fr/axelallain/zuul/ZuulApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/borrowings/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/borrowings/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/borrowings/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/borrowings/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/borrowings/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/borrowings/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/borrowings/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/borrowings/src/main/java/fr/axelallain/borrowings/BorrowingsApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/borrowings/src/main/java/fr/axelallain/borrowings/ServletInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/borrowings/src/main/java/fr/axelallain/borrowings/configuration/SleuthConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/borrowings/src/main/resources/bootstrap.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/borrowings/src/test/java/fr/axelallain/borrowings/BorrowingsApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/src/main/java/fr/axelallain/users/UsersApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/src/main/java/fr/axelallain/users/configuration/SleuthConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/src/main/java/fr/axelallain/users/controller/UsersController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/src/main/java/fr/axelallain/users/dao/UsersDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/src/main/java/fr/axelallain/users/exception/UserNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/src/main/java/fr/axelallain/users/model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/src/main/resources/bootstrap.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/src/test/java/fr/axelallain/users/UsersApplicationTests.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/books/target/" />
     <ignored path="$PROJECT_DIR$/borrowings/target/" />
@@ -83,25 +74,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/controller/LoanController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="854">
-              <caret line="59" column="24" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1250#1251#0" expanded="true" />
-                <element signature="e#1283#1284#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="114">
+              <caret line="61" column="49" lean-forward="true" selection-start-line="61" selection-start-column="49" selection-end-line="61" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/proxy/BooksProxy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+            <state relative-caret-position="270">
+              <caret line="18" column="30" lean-forward="true" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -112,8 +98,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/SchedulingTasks.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="94" column="46" selection-start-line="94" selection-start-column="46" selection-end-line="94" selection-end-column="46" />
+            <state relative-caret-position="352">
+              <caret line="96" column="45" lean-forward="true" selection-start-line="96" selection-start-column="45" selection-end-line="96" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -241,11 +227,10 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="681" />
-    <option name="y" value="219" />
-    <option name="width" value="999" />
-    <option name="height" value="831" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="24" />
+    <option name="width" value="1680" />
+    <option name="height" value="1027" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -254,7 +239,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -524,6 +508,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -534,7 +519,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1583893906775" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1583894290317" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -660,17 +645,19 @@
       <workItem from="1578492080358" duration="2428000" />
       <workItem from="1578859771716" duration="13532000" />
       <workItem from="1579383035102" duration="145663000" />
-      <workItem from="1581778251332" duration="111286000" />
+      <workItem from="1581778251332" duration="111632000" />
+      <workItem from="1583898990177" duration="4805000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="363567000" />
+    <option name="totallyTimeSpent" value="368718000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
+    <frame x="0" y="24" width="1680" height="1027" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49923897" visible="true" weight="0.2008547" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49923897" visible="true" weight="0.2032967" />
       <window_info id="Structure" order="1" sideWeight="0.50076103" side_tool="true" weight="0.21991481" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -693,7 +680,7 @@
       <window_info anchor="bottom" id="Spring" order="12" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32953367" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.2748663" />
-      <window_info active="true" anchor="bottom" id="Run Dashboard" order="15" visible="true" weight="0.3647059" />
+      <window_info anchor="bottom" id="Run Dashboard" order="15" weight="0.32941177" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -857,25 +844,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/books/src/main/resources/jdbc.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="49" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/PersistenceConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="20" column="101" lean-forward="true" selection-start-line="20" selection-start-column="101" selection-end-line="20" selection-end-column="101" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1830#1831#0" expanded="true" />
-            <element signature="e#1878#1879#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/books/src/main/resources/jdbc.properties" />
+    <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/PersistenceConfig.java" />
     <entry file="file://$PROJECT_DIR$/client-ui/src/main/resources/templates/fragments/navbar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1130,13 +1100,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/books/src/main/resources/bootstrap.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/dao/BooksDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1178,10 +1141,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/books/src/main/resources/bootstrap.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/SchedulingTasks.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="94" column="46" selection-start-line="94" selection-start-column="46" selection-end-line="94" selection-end-column="46" />
+        <state relative-caret-position="352">
+          <caret line="96" column="45" lean-forward="true" selection-start-line="96" selection-start-column="45" selection-end-line="96" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1198,24 +1168,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/proxy/BooksProxy.java">
+    <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/controller/LoanController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="114">
+          <caret line="61" column="49" lean-forward="true" selection-start-line="61" selection-start-column="49" selection-end-line="61" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/controller/LoanController.java">
+    <entry file="file://$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/proxy/BooksProxy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="854">
-          <caret line="59" column="24" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="24" />
+        <state relative-caret-position="270">
+          <caret line="18" column="30" lean-forward="true" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1250#1251#0" expanded="true" />
-            <element signature="e#1283#1284#0" expanded="true" />
           </folding>
         </state>
       </provider>

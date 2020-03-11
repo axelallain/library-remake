@@ -91,6 +91,7 @@ public class SchedulingTasks {
 
                     this.emailSender.send(message);
 
+                    loan.setId(loan.getId());
                     loan.setLastReminderEmail(LocalDateTime.now());
                     loan.setStatus("Expired");
                     booksProxy.loanAdd(loan);
