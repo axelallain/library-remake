@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.QueryParam;
 import java.io.IOException;
+import java.security.Principal;
 import java.util.Arrays;
 import java.util.List;
 
@@ -49,9 +51,9 @@ public class ClientUiController {
     }
 
     @GetMapping("/prets")
-    public String prets(Model model, ClientUiTokenController clientUiTokenController, HttpServletRequest request) {
+    public String prets(Model model, ClientUiTokenController clientUiTokenController, HttpServletRequest request, HttpServletResponse response) {
 
-        List<Loan> loans = booksProxy.findByTokenuserid(clientUiTokenController.currentUserId(request));
+        List<Loan> loans = booksProxy.findByTokenuserid(clientUiTokenController.currentUserId(request, response));
 
         model.addAttribute("loans", loans);
 

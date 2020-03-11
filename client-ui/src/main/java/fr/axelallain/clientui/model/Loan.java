@@ -2,6 +2,7 @@ package fr.axelallain.clientui.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Loan {
@@ -10,11 +11,9 @@ public class Loan {
 
     private String status;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date startingDate;
+    private LocalDateTime startingDate;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date endingDate;
+    private LocalDateTime endingDate;
 
     private boolean extended;
 
@@ -23,6 +22,10 @@ public class Loan {
     private String tokenuserid;
 
     private String tokenuseremail;
+
+    private LocalDateTime lastReminderEmail;
+
+    private boolean ended;
 
     public Loan() {
     }
@@ -43,19 +46,19 @@ public class Loan {
         this.status = status;
     }
 
-    public Date getStartingDate() {
+    public LocalDateTime getStartingDate() {
         return startingDate;
     }
 
-    public void setStartingDate(Date startingDate) {
+    public void setStartingDate(LocalDateTime startingDate) {
         this.startingDate = startingDate;
     }
 
-    public Date getEndingDate() {
+    public LocalDateTime getEndingDate() {
         return endingDate;
     }
 
-    public void setEndingDate(Date endingDate) {
+    public void setEndingDate(LocalDateTime endingDate) {
         this.endingDate = endingDate;
     }
 
@@ -91,6 +94,22 @@ public class Loan {
         this.tokenuseremail = tokenuseremail;
     }
 
+    public LocalDateTime getLastReminderEmail() {
+        return lastReminderEmail;
+    }
+
+    public void setLastReminderEmail(LocalDateTime lastReminderEmail) {
+        this.lastReminderEmail = lastReminderEmail;
+    }
+
+    public boolean isEnded() {
+        return ended;
+    }
+
+    public void setEnded(boolean ended) {
+        this.ended = ended;
+    }
+
     @Override
     public String toString() {
         return "Loan{" +
@@ -102,6 +121,8 @@ public class Loan {
                 ", copy=" + copy +
                 ", tokenuserid='" + tokenuserid + '\'' +
                 ", tokenuseremail='" + tokenuseremail + '\'' +
+                ", lastReminderEmail=" + lastReminderEmail +
+                ", ended=" + ended +
                 '}';
     }
 }

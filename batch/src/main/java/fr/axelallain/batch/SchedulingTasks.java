@@ -8,14 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
+@Component
 public class SchedulingTasks {
 
     @Autowired
@@ -27,28 +29,76 @@ public class SchedulingTasks {
     private static final Logger logger = LoggerFactory.getLogger(SchedulingTasks.class);
     private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 
-    @Scheduled(fixedDelay = 2000)
+    @Scheduled(fixedDelay = 10000)
     public String reminderMail() {
 
-        List<Loan> loans = booksProxy.findAll();
+        System.out.println("Checking dates");
 
-        for (Loan loan : loans) {
-            if (ZonedDateTime.now().toInstant().isAfter(loan.getEndingDate().toInstant())) {
+        Iterable<Loan> loansIterable = booksProxy.findAll();
+        List<Loan> loans = new ArrayList<>();
+        loansIterable.forEach(loans::add);
 
-                logger.info("Reminder Mail :: Date - {}", dateTimeFormatter.format(LocalDateTime.now()));
+        if (loans.isEmpty()) {
+            return "No loan found";
 
-                SimpleMailMessage message = new SimpleMailMessage();
+        } else {
+            for (Loan loan : loans) {
 
-                message.setTo(loan.getTokenuseremail());
-                message.setSubject("Rappel - Emprunt expiré");
-                message.setText("La date de fin de votre emprunt a été atteinte. Bibliothèque de Fausseville");
+                if (LocalDateTime.now().isAfter(loan.getEndingDate()) && loan.getLastReminderEmail() != null && !loan.isEnded()) {
 
-                this.emailSender.send(message);
+                    // convert date to calendar
+                    Calendar c = Calendar.getInstance();
+                    c.setTime(Date.from(loan.getLastReminderEmail().atZone(ZoneId.systemDefault()).toInstant()));
 
-                return "Email Sent!";
+                    // manipulate date
+                    c.add(Calendar.HOUR, 48); // 28 Days (4 weeks)
+
+                    // convert calendar to date
+                    Date lastReminderEmailExtended = c.getTime();
+
+                    LocalDateTime LdtLastReminderEmailExtended = lastReminderEmailExtended.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+
+                    Duration duration = Duration.between(loan.getLastReminderEmail(), LdtLastReminderEmailExtended);
+                    long durationHours = duration.toHours();
+
+                    if (durationHours >= 48) {
+                        logger.info("Reminder Mail :: Date - {}", dateTimeFormatter.format(LocalDateTime.now()));
+
+                        SimpleMailMessage message = new SimpleMailMessage();
+
+                        message.setTo(loan.getTokenuseremail());
+                        message.setSubject("Rappel - Emprunt expiré");
+                        message.setText("La date de fin de votre emprunt a été atteinte. Bibliothèque de Fausseville");
+
+                        this.emailSender.send(message);
+
+                        loan.setLastReminderEmail(LocalDateTime.now());
+                        booksProxy.loanAdd(loan);
+
+                        return "Email Sent!";
+
+                    }
+
+                } else if (LocalDateTime.now().isAfter(loan.getEndingDate()) && loan.getLastReminderEmail() == null && !loan.isEnded()) {
+
+                    logger.info("Reminder Mail :: Date - {}", dateTimeFormatter.format(LocalDateTime.now()));
+
+                    SimpleMailMessage message = new SimpleMailMessage();
+
+                    message.setTo(loan.getTokenuseremail());
+                    message.setSubject("Rappel - Emprunt expiré");
+                    message.setText("La date de fin de votre emprunt a été atteinte. Bibliothèque de Fausseville");
+
+                    this.emailSender.send(message);
+
+                    loan.setLastReminderEmail(LocalDateTime.now());
+                    loan.setStatus("Expired");
+                    booksProxy.loanAdd(loan);
+
+                    return "Email Sent!";
+                }
             }
+            return "No loan has expired";
         }
-
-        return "No loan has expired";
     }
 }

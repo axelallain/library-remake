@@ -11,6 +11,4 @@ public interface LoanDao extends JpaRepository<Loan, Integer> {
     List<Loan> findByTokenuserid(String tokenuserid);
 
     Loan findById(int id);
-
-    List<Loan> findAll();
 }
