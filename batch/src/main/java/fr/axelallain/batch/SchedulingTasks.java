@@ -51,17 +51,17 @@ public class SchedulingTasks {
                     c.setTime(Date.from(loan.getLastReminderEmail().atZone(ZoneId.systemDefault()).toInstant()));
 
                     // manipulate date
-                    c.add(Calendar.HOUR, 48); // 28 Days (4 weeks)
+                    c.add(Calendar.HOUR, 24);
 
                     // convert calendar to date
                     Date lastReminderEmailExtended = c.getTime();
 
                     LocalDateTime LdtLastReminderEmailExtended = lastReminderEmailExtended.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
 
-                    Duration duration = Duration.between(loan.getLastReminderEmail(), LdtLastReminderEmailExtended);
+                    Duration duration = Duration.between(LocalDateTime.now(), LdtLastReminderEmailExtended);
                     long durationHours = duration.toHours();
 
-                    if (durationHours >= 24) {
+                    if (durationHours <= 0) {
                         logger.info("Reminder Mail :: Date - {}", dateTimeFormatter.format(LocalDateTime.now()));
 
                         SimpleMailMessage message = new SimpleMailMessage();
