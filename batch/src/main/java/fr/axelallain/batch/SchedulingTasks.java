@@ -61,7 +61,7 @@ public class SchedulingTasks {
                     Duration duration = Duration.between(loan.getLastReminderEmail(), LdtLastReminderEmailExtended);
                     long durationHours = duration.toHours();
 
-                    if (durationHours >= 48) {
+                    if (durationHours >= 24) {
                         logger.info("Reminder Mail :: Date - {}", dateTimeFormatter.format(LocalDateTime.now()));
 
                         SimpleMailMessage message = new SimpleMailMessage();
