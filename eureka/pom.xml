@@ -11,11 +11,11 @@
 
     <groupId>fr.axelallain</groupId>
     <artifactId>eureka</artifactId>
-    <version>0.0.1</version>
+    <version>1.0.0</version>
     <name>eureka</name>
     <description>Eureka microservice</description>
 
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <properties>
         <java.version>11</java.version>
@@ -62,6 +62,7 @@
     </dependencyManagement>
 
     <build>
+        <finalName>eureka</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

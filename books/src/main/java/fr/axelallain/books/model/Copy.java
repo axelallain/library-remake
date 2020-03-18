@@ -18,7 +18,7 @@ public class Copy {
     @Column(name = "available")
     private boolean available;
 
-    @OneToOne(mappedBy = "copy", cascade = CascadeType.ALL, optional = false)
+    @OneToOne(mappedBy = "copy", cascade = CascadeType.ALL)
     @JsonIgnore
     private Loan loan;
 

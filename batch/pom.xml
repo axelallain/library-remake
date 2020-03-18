@@ -11,11 +11,11 @@
 
     <groupId>fr.axelallain</groupId>
     <artifactId>batch</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>batch</name>
     <description>Batch microservice</description>
 
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <properties>
         <java.version>11</java.version>
@@ -96,6 +96,7 @@
     </dependencyManagement>
 
     <build>
+        <finalName>batch</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

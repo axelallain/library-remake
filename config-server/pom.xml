@@ -11,11 +11,11 @@
 
     <groupId>fr.axelallain</groupId>
     <artifactId>config-server</artifactId>
-    <version>0.0.1</version>
+    <version>1.0.0</version>
     <name>config-server</name>
     <description>Config server microservice</description>
 
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <properties>
         <java.version>11</java.version>
@@ -54,6 +54,7 @@
     </dependencyManagement>
 
     <build>
+        <finalName>configserver</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

@@ -11,11 +11,11 @@
 
     <groupId>fr.axelallain</groupId>
     <artifactId>springadmin</artifactId>
-    <version>0.0.1</version>
+    <version>1.0.0</version>
     <name>springadmin</name>
     <description>Spring Admin edge microservice</description>
 
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <properties>
         <java.version>11</java.version>
@@ -52,6 +52,14 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
@@ -74,6 +82,7 @@
     </dependencyManagement>
 
     <build>
+        <finalName>springadmin</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
