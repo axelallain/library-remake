@@ -17,7 +17,7 @@
 1. [Prérequis](#prérequis)
 2. [Configuration](#configuration)
     * [Connexion à votre base de données](#connexion-à-votre-base-de-données)
-    * [Génération du fichier .war avec votre configuration](#génération-du-fichier-war-avec-votre-configuration) 
+    * [Génération des fichiers jar avec votre configuration](#génération-des-fichiers-jar-avec-votre-configuration) 
     
 3. [Déploiement](#déploiement)
     * [Base de données](#base-de-données)
