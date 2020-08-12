@@ -39,6 +39,7 @@
           <th class="th-sm">Auteur</th>
           <th class="th-sm">Édition</th>
           <th class="th-sm">Exemplaires</th>
+          <th class="th-sm"></th>
         </tr>
         </thead>
         <tbody>
@@ -48,6 +49,13 @@
           <td th:text="${book.author}" class="truncate"></td>
           <td th:text="${book.publisher}" class="truncate"></td>
           <td th:text="${#lists.size(book.copies)} + ' exemplaires'" class="truncate"></td>
+
+          <td>
+            <form>
+              <button type="submit" class="btn btn-success btn-sm">Réserver</button>
+            </form>
+          </td>
+
         </tr>
         </tbody>
       </table>
