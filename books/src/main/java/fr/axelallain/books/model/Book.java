@@ -30,6 +30,9 @@ public class Book {
     @JsonManagedReference
     private List<Copy> copies;
 
+    @OneToMany(mappedBy="book")
+    private Collection<Reservation> reservations;
+
     public Book() {
     }
 
@@ -73,6 +76,14 @@ public class Book {
         this.copies = copies;
     }
 
+    public Collection<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(Collection<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
@@ -81,6 +92,7 @@ public class Book {
                 ", author='" + author + '\'' +
                 ", publisher='" + publisher + '\'' +
                 ", copies=" + copies +
+                ", reservations=" + reservations +
                 '}';
     }
 }

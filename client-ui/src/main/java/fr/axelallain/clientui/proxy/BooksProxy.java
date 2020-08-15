@@ -2,6 +2,7 @@ package fr.axelallain.clientui.proxy;
 
 import fr.axelallain.clientui.model.Book;
 import fr.axelallain.clientui.model.Loan;
+import fr.axelallain.clientui.model.Reservation;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
@@ -29,4 +30,7 @@ public interface BooksProxy {
 
     @PostMapping("/books/loan/{id}/extension")
     void extensionDate(@PathVariable int id);
+
+    @PostMapping("/books/reservations")
+    public void reservationsAdd(Reservation reservation);
 }

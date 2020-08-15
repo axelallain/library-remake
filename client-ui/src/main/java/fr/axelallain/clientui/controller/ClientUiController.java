@@ -6,8 +6,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 import fr.axelallain.clientui.model.Book;
 import fr.axelallain.clientui.model.Loan;
+import fr.axelallain.clientui.model.Reservation;
 import fr.axelallain.clientui.proxy.BooksProxy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +34,11 @@ public class ClientUiController {
     @Autowired
     private BooksProxy booksProxy;
 
+    public boolean isAuthenticated(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authentication != null && !(authentication instanceof AnonymousAuthenticationToken) && authentication.isAuthenticated();
+    }
+
     @GetMapping("/")
     public String index(Model model) {
 
@@ -41,11 +50,16 @@ public class ClientUiController {
     }
 
     @GetMapping("/ouvrages")
-    public String ouvrages(Model model) {
+    public String ouvrages(Model model, HttpServletRequest request, HttpServletResponse response) {
 
         Iterable<Book> books = booksProxy.books();
 
         model.addAttribute("books", books);
+        model.addAttribute("reservation", new Reservation());
+
+        if (isAuthenticated()) {
+            model.addAttribute("cuserid", request.getUserPrincipal().getName());
+        }
 
         return "books";
     }
@@ -79,11 +93,16 @@ public class ClientUiController {
     }
 
     @GetMapping("/recherche-ouvrages")
-    public String rechercheOuvrages(Model model, @QueryParam("name") String name) throws IOException {
+    public String rechercheOuvrages(Model model, @QueryParam("name") String name, HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         List<Book> books = booksProxy.findByNameContainingIgnoreCase(name);
 
         model.addAttribute("books", books);
+        model.addAttribute("reservation", new Reservation());
+
+        if (isAuthenticated()) {
+            model.addAttribute("cuserid", request.getUserPrincipal().getName());
+        }
 
         return "books";
     }
@@ -94,5 +113,12 @@ public class ClientUiController {
         booksProxy.extensionDate(id);
 
         return "redirect:/prets";
+    }
+
+    @PostMapping("/reservation")
+    public String reservation(Reservation reservation) {
+        booksProxy.reservationsAdd(reservation);
+
+        return "redirect:/";
     }
 }

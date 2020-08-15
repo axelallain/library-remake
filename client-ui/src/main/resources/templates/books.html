@@ -51,7 +51,10 @@
           <td th:text="${#lists.size(book.copies)} + ' exemplaires'" class="truncate"></td>
 
           <td>
-            <form>
+            <form th:action="@{/reservation}" th:object="${reservation}" method="post">
+              <input type="hidden" id="book.id" name="book.id" th:value="${book.id}" />
+              <input type="hidden" id="tokenuserid" name="tokenuserid" th:value="${cuserid}" />
+
               <button type="submit" class="btn btn-success btn-sm">Réserver</button>
             </form>
           </td>
