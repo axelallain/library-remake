@@ -5,9 +5,11 @@ import fr.axelallain.clientui.model.Loan;
 import fr.axelallain.clientui.model.Reservation;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.QueryParam;
 import java.util.Date;
 import java.util.List;
@@ -32,5 +34,5 @@ public interface BooksProxy {
     void extensionDate(@PathVariable int id);
 
     @PostMapping("/books/reservations")
-    public void reservationsAdd(Reservation reservation);
+    void reservationsAdd(@RequestBody Reservation reservation);
 }

@@ -31,6 +31,7 @@ public class Book {
     private List<Copy> copies;
 
     @OneToMany(mappedBy="book")
+    @JsonManagedReference
     private Collection<Reservation> reservations;
 
     public Book() {

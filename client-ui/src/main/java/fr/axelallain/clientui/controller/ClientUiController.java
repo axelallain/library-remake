@@ -9,19 +9,18 @@ import fr.axelallain.clientui.model.Loan;
 import fr.axelallain.clientui.model.Reservation;
 import fr.axelallain.clientui.proxy.BooksProxy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.QueryParam;
 import java.io.IOException;
 import java.security.Principal;
@@ -55,7 +54,7 @@ public class ClientUiController {
         Iterable<Book> books = booksProxy.books();
 
         model.addAttribute("books", books);
-        model.addAttribute("reservation", new Reservation());
+
 
         if (isAuthenticated()) {
             model.addAttribute("cuserid", request.getUserPrincipal().getName());
@@ -116,7 +115,12 @@ public class ClientUiController {
     }
 
     @PostMapping("/reservation")
-    public String reservation(Reservation reservation) {
+    public String reservation(int bookid, String tokenuserid) {
+        Reservation reservation = new Reservation();
+        Book book = new Book();
+        book.setId(bookid);
+        reservation.setBook(book);
+        reservation.setTokenuserid(tokenuserid);
         booksProxy.reservationsAdd(reservation);
 
         return "redirect:/";
