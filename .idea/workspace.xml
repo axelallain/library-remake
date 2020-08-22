@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -21,11 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7914948f-dc7e-4c99-9931-41cc5dcb3082" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/controller/ReservationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/model/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/model/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/controller/ClientUiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/controller/ClientUiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/proxy/BooksProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/proxy/BooksProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/SchedulingTasks.java" beforeDir="false" afterPath="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/SchedulingTasks.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client-ui/src/main/resources/templates/books.html" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/resources/templates/books.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,6 +42,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.1.4\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="1fpJyyXiCzK10VC11nOgXbaoRS6" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -139,6 +145,7 @@
       <item itemvalue="Spring Boot.BatchApplication" />
     </list>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -154,12 +161,13 @@
       <workItem from="1596909366089" duration="746000" />
       <workItem from="1597140391770" duration="2271000" />
       <workItem from="1597248453158" duration="16999000" />
-      <workItem from="1597853650861" duration="5752000" />
+      <workItem from="1597853650861" duration="9097000" />
+      <workItem from="1598057694315" duration="2597000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -182,38 +190,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="750" y="317" width="1056" height="595" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1597423254346" />
-    <state width="1574" height="318" key="GridCell.Tab.0.bottom" timestamp="1597874185095">
+    <state width="1560" height="367" key="GridCell.Tab.0.bottom" timestamp="1598060669111">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1574" height="318" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597874185095" />
-    <state width="1574" height="318" key="GridCell.Tab.0.center" timestamp="1597874185095">
+    <state width="1560" height="367" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598060669111" />
+    <state width="1560" height="367" key="GridCell.Tab.0.center" timestamp="1598060669111">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1574" height="318" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597874185095" />
-    <state width="1574" height="318" key="GridCell.Tab.0.left" timestamp="1597874185095">
+    <state width="1560" height="367" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598060669111" />
+    <state width="1560" height="367" key="GridCell.Tab.0.left" timestamp="1598060669111">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1574" height="318" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597874185095" />
-    <state width="1574" height="318" key="GridCell.Tab.0.right" timestamp="1597874185095">
+    <state width="1560" height="367" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598060669111" />
+    <state width="1560" height="367" key="GridCell.Tab.0.right" timestamp="1598060669111">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1574" height="318" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597874185095" />
-    <state width="1574" height="318" key="GridCell.Tab.1.bottom" timestamp="1597874185096">
+    <state width="1560" height="367" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598060669111" />
+    <state width="1560" height="367" key="GridCell.Tab.1.bottom" timestamp="1598060669111">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1574" height="318" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597874185096" />
-    <state width="1574" height="318" key="GridCell.Tab.1.center" timestamp="1597874185095">
+    <state width="1560" height="367" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598060669111" />
+    <state width="1560" height="367" key="GridCell.Tab.1.center" timestamp="1598060669111">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1574" height="318" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597874185095" />
-    <state width="1574" height="318" key="GridCell.Tab.1.left" timestamp="1597874185095">
+    <state width="1560" height="367" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598060669111" />
+    <state width="1560" height="367" key="GridCell.Tab.1.left" timestamp="1598060669111">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1574" height="318" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597874185095" />
-    <state width="1574" height="318" key="GridCell.Tab.1.right" timestamp="1597874185095">
+    <state width="1560" height="367" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598060669111" />
+    <state width="1560" height="367" key="GridCell.Tab.1.right" timestamp="1598060669111">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1574" height="318" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597874185095" />
+    <state width="1560" height="367" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598060669111" />
     <state width="1574" height="318" key="GridCell.Tab.2.bottom" timestamp="1597873516934">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

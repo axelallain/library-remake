@@ -102,4 +102,10 @@ public class SchedulingTasks {
             return "No loan has expired";
         }
     }
+
+    @Scheduled(fixedDelay = 10000)
+    public String nomProvisoireReservation() {
+
+        return "";
+    }
 }
