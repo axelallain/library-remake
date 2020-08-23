@@ -12,6 +12,8 @@ public class Reservation {
 
     private String tokenuserid;
 
+    private String tokenuseremail;
+
     private String status;
 
     public Reservation() {
@@ -57,6 +59,14 @@ public class Reservation {
         this.status = status;
     }
 
+    public String getTokenuseremail() {
+        return tokenuseremail;
+    }
+
+    public void setTokenuseremail(String tokenuseremail) {
+        this.tokenuseremail = tokenuseremail;
+    }
+
     @Override
     public String toString() {
         return "Reservation{" +
@@ -64,6 +74,7 @@ public class Reservation {
                 ", book=" + book +
                 ", creationDate=" + creationDate +
                 ", tokenuserid='" + tokenuserid + '\'' +
+                ", tokenuseremail='" + tokenuseremail + '\'' +
                 ", status='" + status + '\'' +
                 '}';
     }

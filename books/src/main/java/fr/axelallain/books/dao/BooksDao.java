@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface BooksDao extends JpaRepository<Book, Integer>, BooksRepositoryCustom {
+public interface BooksDao extends JpaRepository<Book, Long>, BooksRepositoryCustom {
 
     List<Book> findByNameContainingIgnoreCase(String name);
 }

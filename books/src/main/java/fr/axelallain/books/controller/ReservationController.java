@@ -1,22 +1,24 @@
 package fr.axelallain.books.controller;
 
 import fr.axelallain.books.dao.ReservationDao;
+import fr.axelallain.books.dao.ReservationDaoCustom;
 import fr.axelallain.books.model.Reservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
+import java.util.List;
 
 @RestController
 public class ReservationController {
 
     @Autowired
     private ReservationDao reservationDao;
+
+    @Autowired
+    private ReservationDaoCustom reservationDaoCustom;
 
     @PostMapping("/reservations")
     public void reservationsAdd(@RequestBody Reservation reservation, HttpServletResponse response) {
@@ -27,5 +29,15 @@ public class ReservationController {
             response.setStatus(HttpServletResponse.SC_CREATED);
             reservationDao.save(reservation);
         }
+    }
+
+    @GetMapping("/reservations/{bookid}")
+    public List<Reservation> findByBookIdOrderByCreationDateDesc(@PathVariable Long bookid) {
+        return reservationDaoCustom.findByBookIdOrderByCreationDateDesc(bookid);
+    }
+
+    @GetMapping("/reservations")
+    public List<Reservation> findAllReservations() {
+        return reservationDao.findAllByOrderByCreationDateDesc();
     }
 }

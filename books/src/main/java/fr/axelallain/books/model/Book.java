@@ -15,7 +15,7 @@ public class Book {
 
     @Id
     @GeneratedValue
-    private Integer id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -37,11 +37,11 @@ public class Book {
     public Book() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

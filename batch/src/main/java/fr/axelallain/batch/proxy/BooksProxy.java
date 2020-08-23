@@ -1,6 +1,7 @@
 package fr.axelallain.batch.proxy;
 
 import fr.axelallain.batch.model.Loan;
+import fr.axelallain.batch.model.Reservation;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
@@ -21,5 +22,11 @@ public interface BooksProxy {
     void loanAdd(@RequestBody Loan loan);
 
     @GetMapping("/books/loan/{id}")
-    Loan findById(@PathVariable int id);
+    Loan findById(@PathVariable Long id);
+
+    @GetMapping("/books/reservations/{bookid}")
+    List<Reservation> findByBookIdOrderByCreationDateDesc(@PathVariable Long bookid);
+
+    @GetMapping("/books/reservations")
+    public List<Reservation> findAllReservations();
 }

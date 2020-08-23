@@ -1,34 +1,20 @@
-package fr.axelallain.books.model;
+package fr.axelallain.batch.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
-import javax.persistence.*;
 import java.sql.Timestamp;
 
-@Entity
-@Table(name = "reservation")
 public class Reservation {
 
-    @Id
-    @GeneratedValue
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "book_id")
-    @JsonBackReference
     private Book book;
 
-    @Column(name = "creationDate", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable = false, updatable = false, nullable = false)
     private Timestamp creationDate;
 
-    @Column(name = "tokenuserid", nullable = false)
     private String tokenuserid;
 
-    @Column(name = "tokenuseremail", nullable = false)
     private String tokenuseremail;
 
-    @Column(name = "status", insertable = false)
-    private String status = "Pending";
+    private String status;
 
     public Reservation() {
     }

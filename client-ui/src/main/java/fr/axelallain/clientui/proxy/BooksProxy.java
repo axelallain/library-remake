@@ -22,7 +22,7 @@ public interface BooksProxy {
     Iterable<Book> books();
 
     @GetMapping(value = "/books/books/{id}")
-    Book booksById(@PathVariable("id") int id);
+    Book booksById(@PathVariable("id") Long id);
 
     @GetMapping(value = "/books/books/search")
     List<Book> findByNameContainingIgnoreCase(@RequestParam("name") String name);
@@ -31,7 +31,7 @@ public interface BooksProxy {
     List<Loan> findByTokenuserid(@PathVariable String tokenuserid);
 
     @PostMapping("/books/loan/{id}/extension")
-    void extensionDate(@PathVariable int id);
+    void extensionDate(@PathVariable Long id);
 
     @PostMapping("/books/reservations")
     void reservationsAdd(@RequestBody Reservation reservation);

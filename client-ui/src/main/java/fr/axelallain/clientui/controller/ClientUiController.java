@@ -8,10 +8,17 @@ import fr.axelallain.clientui.model.Book;
 import fr.axelallain.clientui.model.Loan;
 import fr.axelallain.clientui.model.Reservation;
 import fr.axelallain.clientui.proxy.BooksProxy;
+import org.keycloak.KeycloakPrincipal;
+import org.keycloak.KeycloakSecurityContext;
+import org.keycloak.adapters.RefreshableKeycloakSecurityContext;
+import org.keycloak.adapters.springsecurity.account.SimpleKeycloakAccount;
+import org.keycloak.adapters.springsecurity.token.KeycloakAuthenticationToken;
+import org.keycloak.representations.AccessToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +29,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
 import java.io.IOException;
 import java.security.Principal;
 import java.util.Arrays;
@@ -32,6 +40,9 @@ public class ClientUiController {
 
     @Autowired
     private BooksProxy booksProxy;
+
+    @Context
+    SecurityContext securityContext;
 
     public boolean isAuthenticated(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -55,9 +66,14 @@ public class ClientUiController {
 
         model.addAttribute("books", books);
 
-
         if (isAuthenticated()) {
             model.addAttribute("cuserid", request.getUserPrincipal().getName());
+
+            KeycloakAuthenticationToken token = (KeycloakAuthenticationToken) request.getUserPrincipal();
+            KeycloakPrincipal principal=(KeycloakPrincipal)token.getPrincipal();
+            KeycloakSecurityContext session = principal.getKeycloakSecurityContext();
+            AccessToken accessToken = session.getToken();
+            model.addAttribute("cuseremail", accessToken.getEmail());
         }
 
         return "books";
@@ -101,13 +117,19 @@ public class ClientUiController {
 
         if (isAuthenticated()) {
             model.addAttribute("cuserid", request.getUserPrincipal().getName());
+
+            KeycloakAuthenticationToken token = (KeycloakAuthenticationToken) request.getUserPrincipal();
+            KeycloakPrincipal principal=(KeycloakPrincipal)token.getPrincipal();
+            KeycloakSecurityContext session = principal.getKeycloakSecurityContext();
+            AccessToken accessToken = session.getToken();
+            model.addAttribute("cuseremail", accessToken.getEmail());
         }
 
         return "books";
     }
 
     @PostMapping("/loan/{id}/extension")
-    public String extensionDate(@PathVariable int id) {
+    public String extensionDate(@PathVariable Long id) {
 
         booksProxy.extensionDate(id);
 
@@ -115,12 +137,13 @@ public class ClientUiController {
     }
 
     @PostMapping("/reservation")
-    public String reservation(int bookid, String tokenuserid) {
+    public String reservation(int bookid, String tokenuserid, String tokenuseremail) {
         Reservation reservation = new Reservation();
         Book book = new Book();
         book.setId(bookid);
         reservation.setBook(book);
         reservation.setTokenuserid(tokenuserid);
+        reservation.setTokenuseremail(tokenuseremail);
         booksProxy.reservationsAdd(reservation);
 
         return "redirect:/";

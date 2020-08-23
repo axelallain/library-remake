@@ -34,7 +34,7 @@ public class BooksController {
     }
 
     @GetMapping("/books/{id}")
-    public Optional<Book> booksById(@PathVariable int id, HttpServletResponse response) {
+    public Optional<Book> booksById(@PathVariable Long id, HttpServletResponse response) {
 
         Optional<Book> book = booksDao.findById(id);
 
@@ -58,7 +58,7 @@ public class BooksController {
     }
 
     @PutMapping("/books/{id}")
-    public void booksEdit(@RequestBody Book book, @PathVariable int id, HttpServletResponse response) {
+    public void booksEdit(@RequestBody Book book, @PathVariable Long id, HttpServletResponse response) {
 
         Optional<Book> bookOptional = booksDao.findById(id);
 
@@ -72,7 +72,7 @@ public class BooksController {
     }
 
     @DeleteMapping("/books/{id}")
-    public void booksDelete(@PathVariable int id) {
+    public void booksDelete(@PathVariable Long id) {
 
         booksDao.deleteById(id);
     }
