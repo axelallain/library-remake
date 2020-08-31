@@ -39,6 +39,7 @@
           <th class="th-sm">Statut</th>
           <th class="th-sm">Date de retour prévue</th>
           <th class="th-sm">Position file d'attente</th>
+          <th class="th-sm"></th>
         </tr>
         </thead>
         <tbody>
@@ -48,6 +49,33 @@
           <td th:text="${reservation.status}" class="truncate"></td>
           <td th:text="${reservation.creationDate}" class="truncate"></td>
           <td th:text="${#lists.size(reservations)} + ' exemplaires'" class="truncate"></td>
+
+          <td>
+            <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">Annuler</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">Confirmer l'annulation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    Votre réservation sera annulée.
+                    Vous ne serez plus dans la file d'attente pour ce livre.
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                    <a th:href="@{'/reservations/delete/{id}'(id=${reservation.id})}" class="btn btn-primary">Confirmer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+
         </tr>
         </tbody>
       </table>

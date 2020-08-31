@@ -38,4 +38,7 @@ public interface BooksProxy {
 
     @GetMapping("/books/reservations/user/{tokenuserid}")
     List<Reservation> findAllReservationsByTokenuserid(@PathVariable String tokenuserid);
+
+    @GetMapping("/books/reservations/delete/{id}")
+    void deleteReservationById(@PathVariable Long id);
 }

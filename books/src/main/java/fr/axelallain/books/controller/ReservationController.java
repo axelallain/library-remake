@@ -55,4 +55,9 @@ public class ReservationController {
             return reservations;
         }
     }
+
+    @GetMapping("/reservations/delete/{id}")
+    public void deleteReservationById(@PathVariable Long id) {
+        reservationDao.deleteById(id);
+    }
 }

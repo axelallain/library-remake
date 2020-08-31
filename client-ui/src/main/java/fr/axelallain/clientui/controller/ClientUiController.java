@@ -158,4 +158,12 @@ public class ClientUiController {
 
         return "reservations";
     }
+
+    @GetMapping("/reservations/delete/{id}")
+    public String deleteReservationById(@PathVariable Long id) {
+
+        booksProxy.deleteReservationById(id);
+
+        return "redirect:/";
+    }
 }
