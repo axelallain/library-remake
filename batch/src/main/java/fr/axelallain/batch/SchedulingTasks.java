@@ -156,7 +156,6 @@ public class SchedulingTasks {
                     // Comparer heure locale et date de creation de l'emprunt, Si temps écoulé > 48h && reservations.get(i).getStatus.equals("Pending")
                     if (durationHours <= 0 && reservations.get(i).getStatus().equals("Pending")) {
                         reservations.get(i).setStatus("Annulé");
-                        reservations.remove(i);
                         return "L'utilisateur n'est pas allé chercher l'exemplaire, la réservation est annulée";
                     }
 

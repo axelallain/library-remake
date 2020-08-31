@@ -35,4 +35,7 @@ public interface BooksProxy {
 
     @PostMapping("/books/reservations")
     void reservationsAdd(@RequestBody Reservation reservation);
+
+    @GetMapping("/books/reservations/user/{tokenuserid}")
+    List<Reservation> findAllReservationsByTokenuserid(@PathVariable String tokenuserid);
 }

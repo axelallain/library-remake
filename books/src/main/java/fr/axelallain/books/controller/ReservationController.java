@@ -2,6 +2,7 @@ package fr.axelallain.books.controller;
 
 import fr.axelallain.books.dao.ReservationDao;
 import fr.axelallain.books.dao.ReservationDaoCustom;
+import fr.axelallain.books.model.Loan;
 import fr.axelallain.books.model.Reservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -39,5 +40,19 @@ public class ReservationController {
     @GetMapping("/reservations")
     public List<Reservation> findAllReservations() {
         return reservationDao.findAllByOrderByCreationDateDesc();
+    }
+
+    @GetMapping("/reservations/user/{tokenuserid}")
+    public List<Reservation> findByTokenuserid(@PathVariable String tokenuserid, HttpServletResponse response) {
+
+        List<Reservation> reservations = reservationDao.findByTokenuserid(tokenuserid);
+
+        if (reservations.isEmpty()) {
+            response.setStatus(HttpServletResponse.SC_OK);
+            return reservations;
+        } else {
+            response.setStatus(HttpServletResponse.SC_OK);
+            return reservations;
+        }
     }
 }

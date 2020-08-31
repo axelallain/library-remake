@@ -6,12 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="config-server" />
+        <module name="books" />
+        <module name="eureka" />
+        <module name="client-ui" />
         <module name="batch" />
         <module name="zuul" />
-        <module name="config-server" />
-        <module name="client-ui" />
-        <module name="eureka" />
-        <module name="books" />
         <module name="springadmin" />
       </profile>
     </annotationProcessing>

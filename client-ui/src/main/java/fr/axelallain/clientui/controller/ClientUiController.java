@@ -148,4 +148,14 @@ public class ClientUiController {
 
         return "redirect:/";
     }
+
+    @GetMapping("/reservations")
+    public String reservations(Model model, ClientUiTokenController clientUiTokenController, HttpServletRequest request, HttpServletResponse response) {
+
+        List<Reservation> reservations = booksProxy.findAllReservationsByTokenuserid(clientUiTokenController.currentUserId(request, response));
+
+        model.addAttribute("reservations", reservations);
+
+        return "reservations";
+    }
 }

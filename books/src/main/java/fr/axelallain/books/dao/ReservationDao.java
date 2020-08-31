@@ -11,4 +11,6 @@ public interface ReservationDao extends JpaRepository<Reservation, Long> {
     <S extends Reservation> S save(S s);
 
     List<Reservation> findAllByOrderByCreationDateDesc();
+
+    List<Reservation> findByTokenuserid(String tokenuserid);
 }
