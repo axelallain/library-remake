@@ -137,14 +137,23 @@ public class ClientUiController {
     }
 
     @PostMapping("/reservation")
-    public String reservation(int bookid, String tokenuserid, String tokenuseremail) {
-        Reservation reservation = new Reservation();
-        Book book = new Book();
-        book.setId(bookid);
-        reservation.setBook(book);
-        reservation.setTokenuserid(tokenuserid);
-        reservation.setTokenuseremail(tokenuseremail);
-        booksProxy.reservationsAdd(reservation);
+    public String reservation(int bookid, String tokenuserid, String tokenuseremail, HttpServletResponse response) {
+
+        if (isAuthenticated()) {
+            Reservation reservation = new Reservation();
+            Book book = new Book();
+            book.setId(bookid);
+            reservation.setBook(book);
+            reservation.setTokenuserid(tokenuserid);
+            reservation.setTokenuseremail(tokenuseremail);
+            booksProxy.reservationsAdd(reservation);
+        } else {
+            try {
+                response.sendError(401, "No authenticated user found.");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
         return "redirect:/";
     }

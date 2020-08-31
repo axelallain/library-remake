@@ -39,7 +39,7 @@
           <th class="th-sm">Auteur</th>
           <th class="th-sm">Édition</th>
           <th class="th-sm">Exemplaires</th>
-          <th class="th-sm"></th>
+          <th sec:authorize="isAuthenticated()" class="th-sm"></th>
         </tr>
         </thead>
         <tbody>
@@ -50,7 +50,7 @@
           <td th:text="${book.publisher}" class="truncate"></td>
           <td th:text="${#lists.size(book.copies)} + ' exemplaires'" class="truncate"></td>
 
-          <td>
+          <td sec:authorize="isAuthenticated()">
             <div th:if="${book.copies.isEmpty()}">
               <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">Réserver</button>
             </div>
