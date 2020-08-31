@@ -23,22 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7914948f-dc7e-4c99-9931-41cc5dcb3082" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/model/Reservation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/dao/ReservationDaoCustom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/dao/ReservationDaoCustomImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/SchedulingTasks.java" beforeDir="false" afterPath="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/SchedulingTasks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/proxy/BooksProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/batch/src/main/java/fr/axelallain/batch/proxy/BooksProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/controller/BooksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/controller/BooksController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/controller/ReservationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/dao/BooksDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/dao/BooksDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/dao/ReservationDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/dao/ReservationDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/model/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/books/src/main/java/fr/axelallain/books/model/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/controller/ClientUiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/controller/ClientUiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/model/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/proxy/BooksProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/java/fr/axelallain/clientui/proxy/BooksProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-ui/src/main/resources/templates/books.html" beforeDir="false" afterPath="$PROJECT_DIR$/client-ui/src/main/resources/templates/books.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +172,7 @@
       <workItem from="1597140391770" duration="2271000" />
       <workItem from="1597248453158" duration="16999000" />
       <workItem from="1597853650861" duration="9097000" />
-      <workItem from="1598057694315" duration="19931000" />
+      <workItem from="1598057694315" duration="21736000" />
     </task>
     <servers />
   </component>
@@ -214,38 +200,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="624" y="445" width="1056" height="595" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1598205018907" />
-    <state width="1574" height="328" key="GridCell.Tab.0.bottom" timestamp="1598205042135">
+    <state width="1574" height="266" key="GridCell.Tab.0.bottom" timestamp="1598239093470">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1574" height="328" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598205042135" />
-    <state width="1574" height="328" key="GridCell.Tab.0.center" timestamp="1598205042135">
+    <state width="1574" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598239093470" />
+    <state width="1574" height="266" key="GridCell.Tab.0.center" timestamp="1598239093470">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1574" height="328" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598205042135" />
-    <state width="1574" height="328" key="GridCell.Tab.0.left" timestamp="1598205042135">
+    <state width="1574" height="266" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598239093470" />
+    <state width="1574" height="266" key="GridCell.Tab.0.left" timestamp="1598239093469">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1574" height="328" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598205042135" />
-    <state width="1574" height="328" key="GridCell.Tab.0.right" timestamp="1598205042135">
+    <state width="1574" height="266" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598239093469" />
+    <state width="1574" height="266" key="GridCell.Tab.0.right" timestamp="1598239093470">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1574" height="328" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598205042135" />
-    <state width="1574" height="328" key="GridCell.Tab.1.bottom" timestamp="1598205042136">
+    <state width="1574" height="266" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598239093470" />
+    <state width="1574" height="266" key="GridCell.Tab.1.bottom" timestamp="1598239093470">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1574" height="328" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598205042136" />
-    <state width="1574" height="328" key="GridCell.Tab.1.center" timestamp="1598205042135">
+    <state width="1574" height="266" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598239093470" />
+    <state width="1574" height="266" key="GridCell.Tab.1.center" timestamp="1598239093470">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1574" height="328" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598205042135" />
-    <state width="1574" height="328" key="GridCell.Tab.1.left" timestamp="1598205042135">
+    <state width="1574" height="266" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598239093470" />
+    <state width="1574" height="266" key="GridCell.Tab.1.left" timestamp="1598239093470">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1574" height="328" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598205042135" />
-    <state width="1574" height="328" key="GridCell.Tab.1.right" timestamp="1598205042136">
+    <state width="1574" height="266" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598239093470" />
+    <state width="1574" height="266" key="GridCell.Tab.1.right" timestamp="1598239093470">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1574" height="328" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598205042136" />
+    <state width="1574" height="266" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598239093470" />
     <state width="1574" height="328" key="GridCell.Tab.2.bottom" timestamp="1598205042039">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
