@@ -83,6 +83,10 @@ public class LoanController {
 
         Loan loan = loanDao.findById(id);
 
+        /*
+            TICKET 2
+            Vérification heure locale / date de fin de l'emprunt.
+        */
         if (!loan.isExtended() && LocalDateTime.now().isBefore(loan.getEndingDate())) {
 
             // convert date to calendar
@@ -104,7 +108,7 @@ public class LoanController {
             loanDao.save(loan);
 
         } else {
-            throw new LoanExtensionException("Loan " + id + " cannot be extended (already extended or expired)");
+            throw new LoanExtensionException("Loan " + id + " cannot be extended. (already extended or expired)");
         }
     }
 }
