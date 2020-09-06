@@ -155,7 +155,7 @@ public class ClientUiController {
             }
         }
 
-        return "redirect:/";
+        return "redirect:/reservations";
     }
 
     @GetMapping("/reservations")
@@ -173,6 +173,6 @@ public class ClientUiController {
 
         booksProxy.deleteReservationById(id);
 
-        return "redirect:/";
+        return "redirect:/reservations";
     }
 }
