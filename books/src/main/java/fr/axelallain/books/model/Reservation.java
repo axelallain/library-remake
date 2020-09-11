@@ -27,7 +27,7 @@ public class Reservation {
     @Column(name = "tokenuseremail", nullable = false)
     private String tokenuseremail;
 
-    @Column(name = "status", insertable = false)
+    @Column(name = "status")
     private String status = "Pending";
 
     public Reservation() {

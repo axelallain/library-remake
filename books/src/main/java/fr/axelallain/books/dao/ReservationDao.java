@@ -16,4 +16,6 @@ public interface ReservationDao extends JpaRepository<Reservation, Long> {
 
     @Override
     void deleteById(Long id);
+
+    List<Reservation> findByBookIdAndTokenuserid(Long bookid, String tokenuserid);
 }

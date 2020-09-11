@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -24,8 +25,29 @@ public class ReservationController {
     @PostMapping("/reservations")
     public void reservationsAdd(@RequestBody Reservation reservation, HttpServletResponse response) {
 
+        // Find all reservations by book id and tokenuserid ???
+        List<Reservation> verificationList = reservationDao.findByBookIdAndTokenuserid(reservation.getBook().getId(), reservation.getTokenuserid());
+
+        // Tri de la liste en retirant les réservations terminées
+        for (int i = 0; i < verificationList.size(); i++) {
+            if (verificationList.get(i).getStatus().equals("Ended")) {
+                verificationList.remove(i);
+            }
+        }
+
+        // Si la liste est vide (donc aucune reservation deja en cours pour cet user sur ce livre), save la reservation.
         if (reservation == null) {
-            response.setStatus(HttpServletResponse.SC_CREATED, "Your request has an empty body");
+            try {
+                response.sendError(204, "No reservation found.");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (!verificationList.isEmpty()) {
+            try {
+                response.sendError(403, "This user already have a reservation for this book.");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         } else {
             response.setStatus(HttpServletResponse.SC_CREATED);
             reservationDao.save(reservation);
