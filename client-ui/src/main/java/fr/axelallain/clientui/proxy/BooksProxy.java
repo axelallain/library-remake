@@ -41,4 +41,7 @@ public interface BooksProxy {
 
     @GetMapping("/books/reservations/delete/{id}")
     void deleteReservationById(@PathVariable Long id);
+
+    @GetMapping("/books/reservations/{bookid}")
+    List<Reservation> findByBookIdOrderByCreationDateDesc(@PathVariable Long bookid);
 }

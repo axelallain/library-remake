@@ -165,6 +165,22 @@ public class ClientUiController {
 
         model.addAttribute("reservations", reservations);
 
+        // Récupérer la liste des réservations par book id et order by creationDate (status Pending???)
+        List<Reservation> waitingList = booksProxy.findByBookIdOrderByCreationDateDesc(LID DU BOOK DE LA LIGNE DU TABLEAU SUR LA VUE);
+
+        // Parcourir la liste via une boucle for
+        for (int i = 0; i < waitingList.size(); i++) {
+            // Si l'élément en cours a un tokenuserid qui correspond à celui de l'utilisateur connecté
+            if (waitingList.get(i).getTokenuserid().equals(clientUiTokenController.currentUserId(request, response))) {
+                // Alors stocker son index dans une variable ???
+                Long position = Long.valueOf(i);
+                // Puis envoyer l'index au model
+                model.addAttribute("position", position);
+            }
+        }
+
+        // PS : Il ne peut pas y avoir plusieurs index car les doublons sont déjà gérés donc c'est forcément la position dans la file.
+
         return "reservations";
     }
 

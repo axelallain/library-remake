@@ -18,4 +18,6 @@ public interface ReservationDao extends JpaRepository<Reservation, Long> {
     void deleteById(Long id);
 
     List<Reservation> findByBookIdAndTokenuserid(Long bookid, String tokenuserid);
+
+    List<Reservation> findByBookId(Long id);
 }
