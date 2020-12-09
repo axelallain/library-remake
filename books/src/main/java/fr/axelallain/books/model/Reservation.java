@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "reservation")
@@ -29,6 +30,12 @@ public class Reservation {
 
     @Column(name = "status")
     private String status = "Pending";
+
+    @Column(name = "position")
+    private Long position;
+
+    @Column(name = "nextReturnDate")
+    private LocalDateTime nextReturnDate;
 
     public Reservation() {
     }
@@ -81,6 +88,22 @@ public class Reservation {
         this.tokenuseremail = tokenuseremail;
     }
 
+    public Long getPosition() {
+        return position;
+    }
+
+    public void setPosition(Long position) {
+        this.position = position;
+    }
+
+    public LocalDateTime getNextReturnDate() {
+        return nextReturnDate;
+    }
+
+    public void setNextReturnDate(LocalDateTime nextReturnDate) {
+        this.nextReturnDate = nextReturnDate;
+    }
+
     @Override
     public String toString() {
         return "Reservation{" +
@@ -90,6 +113,8 @@ public class Reservation {
                 ", tokenuserid='" + tokenuserid + '\'' +
                 ", tokenuseremail='" + tokenuseremail + '\'' +
                 ", status='" + status + '\'' +
+                ", position=" + position +
+                ", nextReturnDate=" + nextReturnDate +
                 '}';
     }
 }

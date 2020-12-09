@@ -1,0 +1,64 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringadminApplication<springadmin>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "fr.axelallain.springadmin.SpringadminApplication",
+            "projectName": "springadmin",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ConfigServerApplication<config-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "fr.axelallain.configserver.ConfigServerApplication",
+            "projectName": "config-server",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-EurekaApplication<eureka>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "fr.axelallain.eureka.EurekaApplication",
+            "projectName": "eureka",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ZuulApplication<zuul>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "fr.axelallain.zuul.ZuulApplication",
+            "projectName": "zuul",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-BooksApplication<books>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "fr.axelallain.books.BooksApplication",
+            "projectName": "books",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ClientUiApplication<client-ui>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "fr.axelallain.clientui.ClientUiApplication",
+            "projectName": "client-ui",
+            "args": ""
+        }
+    ]
+}

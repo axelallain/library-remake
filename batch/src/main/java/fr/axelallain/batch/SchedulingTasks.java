@@ -1,5 +1,6 @@
 package fr.axelallain.batch;
 
+import fr.axelallain.batch.model.Book;
 import fr.axelallain.batch.model.Loan;
 import fr.axelallain.batch.model.Reservation;
 import fr.axelallain.batch.proxy.BooksProxy;
@@ -111,6 +112,30 @@ public class SchedulingTasks {
 
         // Recuperer toutes les reservations existantes triées par creationDate
         List<Reservation> reservations = booksProxy.findAllReservations();
+
+        // ATTRIBUTION DES POSITIONS DANS LA FILE
+        for (int i = 0; i < reservations.size(); i++) {
+            reservations.get(i).setPosition((long) i);
+            booksProxy.reservationsAdd(reservations.get(i));
+        }
+
+        // ATTRIBUTION DES DATES DE RETOUR LES PLUS PROCHES POUR CHAQUE LIVRE PEU IMPORTE L'EXEMPLAIRE
+        Iterable<Book> booksIterable = booksProxy.books();
+        List<Book> booksList = new ArrayList<>();
+        booksIterable.forEach(booksList::add);
+
+        Iterable <Loan> loansIterable = booksProxy.findAll();
+        List<Loan> loansList = new ArrayList<>();
+        loansIterable.forEach(loansList::add);
+
+        for (int i = 0; i < booksList.size(); i++) {
+            for (int j = 0; j < loansList.size(); j++) {
+                if (loansList.get(j).getCopy().getBook().getId() == booksList.get(i).getId())
+                    booksList.get(i).setNextReturnDate(loansList.get(j).getEndingDate());
+                    booksProxy.booksAdd(booksList.get(i));
+            }
+        }
+
 
         for(int i = 0; i < reservations.size(); i++) {
 

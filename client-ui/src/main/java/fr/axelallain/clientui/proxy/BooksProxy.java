@@ -44,4 +44,10 @@ public interface BooksProxy {
 
     @GetMapping("/books/reservations/{bookid}")
     List<Reservation> findByBookIdOrderByCreationDateDesc(@PathVariable Long bookid);
+
+    @GetMapping("/books/reservations")
+    List<Reservation> findAllReservations();
+
+    @GetMapping("/books/loan/date")
+    Iterable<Loan> findAllByOrderByEndingDateDesc();
 }

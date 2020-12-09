@@ -47,8 +47,8 @@
           <td scope="row" th:text="${reservation.id}" class="text-center bookid"></td>
           <td th:text="${reservation.creationDate}" class="truncate"></td>
           <td th:text="${reservation.status}" class="truncate"></td>
-          <td th:text="${reservation.creationDate}" class="truncate"></td>
-          <td th:text="${#lists.size(reservations)} + ' exemplaires'" class="truncate"></td>
+          <td th:text="${#temporals.format(reservation.book.nextReturnDate, 'dd-MM-yyyy HH:mm')}" class="truncate"></td>
+          <td th:text="${reservation.position}" class="truncate"></td>
 
           <td>
             <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">Annuler</button>

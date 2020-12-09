@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 
@@ -33,6 +35,9 @@ public class Book {
     @OneToMany(mappedBy="book")
     @JsonManagedReference
     private Collection<Reservation> reservations;
+
+    @Column(name = "nextReturnDate")
+    private LocalDateTime nextReturnDate;
 
     public Book() {
     }
@@ -85,6 +90,14 @@ public class Book {
         this.reservations = reservations;
     }
 
+    public LocalDateTime getNextReturnDate() {
+        return nextReturnDate;
+    }
+
+    public void setNextReturnDate(LocalDateTime nextReturnDate) {
+        this.nextReturnDate = nextReturnDate;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
@@ -94,6 +107,7 @@ public class Book {
                 ", publisher='" + publisher + '\'' +
                 ", copies=" + copies +
                 ", reservations=" + reservations +
+                ", nextReturnDate=" + nextReturnDate +
                 '}';
     }
 }

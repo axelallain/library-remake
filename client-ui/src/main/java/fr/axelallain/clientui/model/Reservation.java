@@ -14,7 +14,11 @@ public class Reservation {
 
     private String tokenuseremail;
 
-    private String status;
+    private String status = "Pending";
+
+    private Long position;
+
+    private Timestamp nextReturnDate;
 
     public Reservation() {
     }
@@ -67,6 +71,22 @@ public class Reservation {
         this.tokenuseremail = tokenuseremail;
     }
 
+    public Long getPosition() {
+        return position;
+    }
+
+    public void setPosition(Long position) {
+        this.position = position;
+    }
+
+    public Timestamp getNextReturnDate() {
+        return nextReturnDate;
+    }
+
+    public void setNextReturnDate(Timestamp nextReturnDate) {
+        this.nextReturnDate = nextReturnDate;
+    }
+
     @Override
     public String toString() {
         return "Reservation{" +
@@ -76,6 +96,8 @@ public class Reservation {
                 ", tokenuserid='" + tokenuserid + '\'' +
                 ", tokenuseremail='" + tokenuseremail + '\'' +
                 ", status='" + status + '\'' +
+                ", position=" + position +
+                ", nextReturnDate=" + nextReturnDate +
                 '}';
     }
 }

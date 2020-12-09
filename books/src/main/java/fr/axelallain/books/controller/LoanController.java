@@ -111,4 +111,18 @@ public class LoanController {
             throw new LoanExtensionException("Loan " + id + " cannot be extended. (already extended or expired)");
         }
     }
+
+    @GetMapping("/loan/date")
+    public Iterable<Loan> findAllByOrderByEndingDateDesc(HttpServletResponse response) {
+
+        Iterable<Loan> loans = loanDao.findAllByOrderByEndingDateDesc();
+
+        if (((List<Loan>) loans).isEmpty()) {
+            response.setStatus(HttpServletResponse.SC_OK);
+            return loans;
+        } else {
+            response.setStatus(HttpServletResponse.SC_OK);
+            return loans;
+        }
+    }
 }

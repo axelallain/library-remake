@@ -1,5 +1,7 @@
 package fr.axelallain.batch.model;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Collection;
 
 public class Book {
@@ -13,6 +15,8 @@ public class Book {
     private String publisher;
 
     private Collection<Copy> copies;
+
+    private LocalDateTime nextReturnDate;
 
     public Book() {
     }
@@ -57,6 +61,14 @@ public class Book {
         this.copies = copies;
     }
 
+    public LocalDateTime getNextReturnDate() {
+        return nextReturnDate;
+    }
+
+    public void setNextReturnDate(LocalDateTime nextReturnDate) {
+        this.nextReturnDate = nextReturnDate;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
@@ -65,6 +77,7 @@ public class Book {
                 ", author='" + author + '\'' +
                 ", publisher='" + publisher + '\'' +
                 ", copies=" + copies +
+                ", nextReturnDate=" + nextReturnDate +
                 '}';
     }
 }
