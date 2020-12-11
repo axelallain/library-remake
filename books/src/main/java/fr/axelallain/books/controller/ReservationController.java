@@ -84,7 +84,7 @@ public class ReservationController {
     @GetMapping("/reservations/user/{tokenuserid}")
     public List<Reservation> findByTokenuserid(@PathVariable String tokenuserid, HttpServletResponse response) {
 
-        List<Reservation> reservations = reservationDao.findByTokenuserid(tokenuserid);
+        List<Reservation> reservations = reservationDaoCustom.findByTokenuserid(tokenuserid);
 
         if (reservations.isEmpty()) {
             response.setStatus(HttpServletResponse.SC_OK);

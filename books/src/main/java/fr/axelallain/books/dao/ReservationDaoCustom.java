@@ -7,4 +7,6 @@ import java.util.List;
 public interface ReservationDaoCustom {
 
     List<Reservation> findByBookIdOrderByCreationDateDesc(Long id);
+
+    List<Reservation> findByTokenuserid(String tokenuserid);
 }

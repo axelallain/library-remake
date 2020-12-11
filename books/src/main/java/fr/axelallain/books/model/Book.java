@@ -1,8 +1,6 @@
 package fr.axelallain.books.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import javax.persistence.*;
@@ -13,6 +11,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "book")
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 public class Book {
 
     @Id
@@ -33,7 +34,6 @@ public class Book {
     private List<Copy> copies;
 
     @OneToMany(mappedBy="book")
-    @JsonManagedReference
     private Collection<Reservation> reservations;
 
     @Column(name = "nextReturnDate")

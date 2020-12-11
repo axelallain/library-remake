@@ -1,5 +1,8 @@
 package fr.axelallain.clientui.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.sql.Timestamp;
 
 public class Reservation {
@@ -21,6 +24,10 @@ public class Reservation {
     private Timestamp nextReturnDate;
 
     public Reservation() {
+    }
+
+    public Reservation(Long id) {
+        this.id = id;
     }
 
     public Long getId() {

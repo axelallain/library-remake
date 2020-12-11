@@ -76,7 +76,7 @@ public class ClientUiController {
             while(reservationsIterator.hasNext()) {
                 Reservation r = reservationsIterator.next();
                 if ("Ended".equals(r.getStatus())) {
-                    reservationsIterator.remove(); // IllegalStateException car remove sans next et impossible de le mettre
+                    reservationsIterator.remove();
                 }
             }
         }

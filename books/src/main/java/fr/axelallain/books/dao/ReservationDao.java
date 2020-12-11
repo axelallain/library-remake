@@ -12,8 +12,6 @@ public interface ReservationDao extends JpaRepository<Reservation, Long> {
 
     List<Reservation> findAllByOrderByCreationDateDesc();
 
-    List<Reservation> findByTokenuserid(String tokenuserid);
-
     @Override
     void deleteById(Long id);
 

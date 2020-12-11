@@ -20,4 +20,11 @@ public class ReservationDaoCustomImpl implements ReservationDaoCustom {
 
         return (List<Reservation>) query.getResultList();
     }
+
+    @Override
+    public List<Reservation> findByTokenuserid(String tokenuserid) {
+        Query query = entityManager.createQuery("SELECT r FROM Reservation r WHERE r.tokenuserid=:tokenuserid ORDER BY r.creationDate DESC").setParameter("tokenuserid", tokenuserid);
+
+        return (List<Reservation>) query.getResultList();
+    }
 }

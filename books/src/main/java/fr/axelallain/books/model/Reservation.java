@@ -1,6 +1,8 @@
 package fr.axelallain.books.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -8,6 +10,9 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "reservation")
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 public class Reservation {
 
     @Id
@@ -16,7 +21,6 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name = "book_id")
-    @JsonBackReference
     private Book book;
 
     @Column(name = "creationDate", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable = false, updatable = false, nullable = false)
