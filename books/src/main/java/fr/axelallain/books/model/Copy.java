@@ -9,6 +9,9 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "copy")
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 public class Copy {
 
     @Id
@@ -18,12 +21,11 @@ public class Copy {
     @Column(name = "available")
     private boolean available;
 
-    @OneToOne(mappedBy = "copy", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "copy")
     @JsonIgnore
     private Loan loan;
 
     @ManyToOne
-    @JsonBackReference
     private Book book;
 
     public Copy() {
@@ -61,13 +63,4 @@ public class Copy {
         this.book = book;
     }
 
-    @Override
-    public String toString() {
-        return "Copy{" +
-                "id=" + id +
-                ", available=" + available +
-                ", loan=" + loan +
-                ", book=" + book +
-                '}';
-    }
 }

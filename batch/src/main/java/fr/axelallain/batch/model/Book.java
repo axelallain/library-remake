@@ -21,6 +21,10 @@ public class Book {
     public Book() {
     }
 
+    public Book(int id) {
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }

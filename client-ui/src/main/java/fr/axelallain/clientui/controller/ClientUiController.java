@@ -68,8 +68,6 @@ public class ClientUiController {
         Iterator<Book> booksIterator = booksIterable.iterator();
 
         // Pour chaque book de la liste booksList, supprimer les réservations terminées de la liste des réservations
-        System.out.println(booksIterator);
-
         while(booksIterator.hasNext()) {
             Book b = booksIterator.next();
             Iterator<Reservation> reservationsIterator = b.getReservations().iterator();
@@ -80,8 +78,6 @@ public class ClientUiController {
                 }
             }
         }
-
-        System.out.println(booksIterator);
 
         // ON ENVOIE LA FILE D'ATTENTE TRIÉE À LA VUE (SANS LES RÉSERVATIONS TERMINÉES, celles archivées)
         model.addAttribute("books", booksIterator);

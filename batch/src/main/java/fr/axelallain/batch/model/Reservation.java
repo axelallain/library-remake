@@ -24,6 +24,10 @@ public class Reservation {
     public Reservation() {
     }
 
+    public Reservation(Long id) {
+        this.id = id;
+    }
+
     public Long getId() {
         return id;
     }

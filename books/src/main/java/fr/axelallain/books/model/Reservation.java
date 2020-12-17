@@ -108,17 +108,4 @@ public class Reservation {
         this.nextReturnDate = nextReturnDate;
     }
 
-    @Override
-    public String toString() {
-        return "Reservation{" +
-                "id=" + id +
-                ", book=" + book +
-                ", creationDate=" + creationDate +
-                ", tokenuserid='" + tokenuserid + '\'' +
-                ", tokenuseremail='" + tokenuseremail + '\'' +
-                ", status='" + status + '\'' +
-                ", position=" + position +
-                ", nextReturnDate=" + nextReturnDate +
-                '}';
-    }
 }

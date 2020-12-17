@@ -29,8 +29,7 @@ public class Book {
     @Column(name = "publisher")
     private String publisher;
 
-    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @OneToMany(mappedBy = "book")
     private List<Copy> copies;
 
     @OneToMany(mappedBy="book")
@@ -98,16 +97,4 @@ public class Book {
         this.nextReturnDate = nextReturnDate;
     }
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", author='" + author + '\'' +
-                ", publisher='" + publisher + '\'' +
-                ", copies=" + copies +
-                ", reservations=" + reservations +
-                ", nextReturnDate=" + nextReturnDate +
-                '}';
-    }
 }

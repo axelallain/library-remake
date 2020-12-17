@@ -15,6 +15,10 @@ public class Copy {
     public Copy() {
     }
 
+    public Copy(int id) {
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }
