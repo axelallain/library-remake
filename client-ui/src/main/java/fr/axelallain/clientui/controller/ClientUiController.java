@@ -80,7 +80,7 @@ public class ClientUiController {
         }
 
         // ON ENVOIE LA FILE D'ATTENTE TRIÉE À LA VUE (SANS LES RÉSERVATIONS TERMINÉES, celles archivées)
-        model.addAttribute("books", booksIterator);
+        model.addAttribute("books", booksIterable);
 
         if (isAuthenticated()) {
             model.addAttribute("cuserid", request.getUserPrincipal().getName());
