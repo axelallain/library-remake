@@ -1,6 +1,7 @@
 package fr.axelallain.books.controller;
 
 import fr.axelallain.books.dao.BooksDao;
+import fr.axelallain.books.dto.UpdateBookDto;
 import fr.axelallain.books.exception.BookNotFoundException;
 import fr.axelallain.books.model.Book;
 import fr.axelallain.books.service.BooksService;
@@ -48,12 +49,22 @@ public class BooksController {
     }
 
     @PostMapping("/books")
-    public void booksAdd(Book book, HttpServletResponse response) {
+    public void booksAdd(@RequestBody UpdateBookDto updateBookDto, HttpServletResponse response) {
 
-        if (book == null) {
+        if (updateBookDto == null) {
             response.setStatus(HttpServletResponse.SC_CREATED, "Your request has an empty body");
         } else {
             response.setStatus(HttpServletResponse.SC_CREATED);
+
+            Book book = new Book();
+            book.setId(updateBookDto.getId());
+            book.setName(updateBookDto.getName());
+            book.setAuthor(updateBookDto.getAuthor());
+            book.setPublisher(updateBookDto.getPublisher());
+            book.setCopies(updateBookDto.getCopies());
+            book.setReservations(updateBookDto.getReservations());
+            book.setNextReturnDate(updateBookDto.getNextReturnDate());
+
             booksService.save(book);
         }
     }

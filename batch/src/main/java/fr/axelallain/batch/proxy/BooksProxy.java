@@ -1,5 +1,6 @@
 package fr.axelallain.batch.proxy;
 
+import fr.axelallain.batch.dto.UpdateBookDto;
 import fr.axelallain.batch.dto.UpdateLoanDto;
 import fr.axelallain.batch.dto.UpdateReservationDto;
 import fr.axelallain.batch.model.Book;
@@ -35,7 +36,7 @@ public interface BooksProxy {
     Iterable<Book> books();
 
     @PostMapping("/books/books")
-    void booksAdd(Book book);
+    void booksAdd(@RequestBody UpdateBookDto updateBookDto);
 
     @PostMapping("/books/reservations")
     void reservationsAdd(@RequestBody UpdateReservationDto updateReservationDto);

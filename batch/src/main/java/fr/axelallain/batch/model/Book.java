@@ -16,6 +16,8 @@ public class Book {
 
     private Collection<Copy> copies;
 
+    private Collection<Reservation> reservations;
+
     private LocalDateTime nextReturnDate;
 
     public Book() {
@@ -65,6 +67,14 @@ public class Book {
         this.copies = copies;
     }
 
+    public Collection<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(Collection<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
     public LocalDateTime getNextReturnDate() {
         return nextReturnDate;
     }
@@ -81,6 +91,7 @@ public class Book {
                 ", author='" + author + '\'' +
                 ", publisher='" + publisher + '\'' +
                 ", copies=" + copies +
+                ", reservations=" + reservations +
                 ", nextReturnDate=" + nextReturnDate +
                 '}';
     }

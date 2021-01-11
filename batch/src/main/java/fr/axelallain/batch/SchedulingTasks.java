@@ -1,8 +1,10 @@
 package fr.axelallain.batch;
 
+import fr.axelallain.batch.dto.UpdateBookDto;
 import fr.axelallain.batch.dto.UpdateLoanDto;
 import fr.axelallain.batch.dto.UpdateReservationDto;
 import fr.axelallain.batch.model.Book;
+import fr.axelallain.batch.model.Copy;
 import fr.axelallain.batch.model.Loan;
 import fr.axelallain.batch.model.Reservation;
 import fr.axelallain.batch.proxy.BooksProxy;
@@ -146,9 +148,19 @@ public class SchedulingTasks {
 
         for (int i = 0; i < booksList.size(); i++) {
             for (int j = 0; j < loansList.size(); j++) {
-                if (loansList.get(j).getCopy().getBook().getId() == booksList.get(i).getId())
-                    booksList.get(i).setNextReturnDate(loansList.get(j).getEndingDate());
-                    booksProxy.booksAdd(booksList.get(i));
+                if (loansList.get(j).getCopy().getBook().getId() == booksList.get(i).getId()) {
+
+                    UpdateBookDto updateBookDto = new UpdateBookDto();
+                    updateBookDto.setId(booksList.get(i).getId());
+                    updateBookDto.setName(booksList.get(i).getName());
+                    updateBookDto.setAuthor(booksList.get(i).getAuthor());
+                    updateBookDto.setPublisher(booksList.get(i).getPublisher());
+                    updateBookDto.setCopies((List<Copy>) booksList.get(i).getCopies());
+                    updateBookDto.setReservations(booksList.get(i).getReservations());
+                    updateBookDto.setNextReturnDate(loansList.get(j).getEndingDate());
+
+                    booksProxy.booksAdd(updateBookDto);
+                }
             }
         }
 
