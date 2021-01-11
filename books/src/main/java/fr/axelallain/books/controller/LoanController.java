@@ -1,9 +1,11 @@
 package fr.axelallain.books.controller;
 
 import fr.axelallain.books.dao.LoanDao;
+import fr.axelallain.books.dto.UpdateLoanDto;
 import fr.axelallain.books.exception.LoanExtensionException;
 import fr.axelallain.books.exception.LoanNotFoundException;
 import fr.axelallain.books.model.Loan;
+import fr.axelallain.books.service.LoanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +25,9 @@ public class LoanController {
 
     @Autowired
     private LoanDao loanDao;
+
+    @Autowired
+    private LoanService loanService;
 
     @GetMapping("/loan/user/{tokenuserid}")
     public List<Loan> findByTokenuserid(@PathVariable String tokenuserid, HttpServletResponse response) {
@@ -58,10 +63,11 @@ public class LoanController {
     }
 
     @PutMapping("/loan")
-    @Transactional
-    public void loanAdd(@RequestBody Loan loan) {
-
-        loanDao.save(loan);
+    public void loanAdd(@RequestBody UpdateLoanDto updateLoanDto) {
+        Loan loan = loanDao.findById(updateLoanDto.getId());
+        loan.setLastReminderEmail(updateLoanDto.getLastReminderEmail());
+        loan.setStatus(updateLoanDto.getStatus());
+        loanService.loanAdd(loan);
     }
 
     @PostMapping("/loan/{id}/ended")

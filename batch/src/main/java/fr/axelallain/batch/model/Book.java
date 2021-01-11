@@ -6,7 +6,7 @@ import java.util.Collection;
 
 public class Book {
 
-    private int id;
+    private Long id;
 
     private String name;
 
@@ -21,15 +21,15 @@ public class Book {
     public Book() {
     }
 
-    public Book(int id) {
+    public Book(Long id) {
         this.id = id;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

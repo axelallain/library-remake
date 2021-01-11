@@ -11,9 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "book")
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class,property="@id", scope=Book.class)
 public class Book {
 
     @Id

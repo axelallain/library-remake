@@ -1,5 +1,7 @@
 package fr.axelallain.batch;
 
+import fr.axelallain.batch.dto.UpdateLoanDto;
+import fr.axelallain.batch.dto.UpdateReservationDto;
 import fr.axelallain.batch.model.Book;
 import fr.axelallain.batch.model.Loan;
 import fr.axelallain.batch.model.Reservation;
@@ -74,8 +76,11 @@ public class SchedulingTasks {
 
                         this.emailSender.send(message);
 
-                        loan.setLastReminderEmail(LocalDateTime.now());
-                        booksProxy.loanAdd(loan);
+                        UpdateLoanDto updateLoanDto = new UpdateLoanDto();
+                        updateLoanDto.setId(loan.getId());
+                        updateLoanDto.setLastReminderEmail(LocalDateTime.now());
+
+                        booksProxy.loanAdd(updateLoanDto);
 
                         return "Email Sent!";
 
@@ -93,10 +98,12 @@ public class SchedulingTasks {
 
                     this.emailSender.send(message);
 
-                    loan.setId(loan.getId());
-                    loan.setLastReminderEmail(LocalDateTime.now());
-                    loan.setStatus("Expired");
-                    booksProxy.loanAdd(loan);
+                    UpdateLoanDto updateLoanDto = new UpdateLoanDto();
+
+                    updateLoanDto.setId(loan.getId());
+                    updateLoanDto.setLastReminderEmail(LocalDateTime.now());
+                    updateLoanDto.setStatus("Expired");
+                    booksProxy.loanAdd(updateLoanDto);
 
                     return "Email Sent!";
                 }
@@ -115,9 +122,18 @@ public class SchedulingTasks {
 
         // ATTRIBUTION DES POSITIONS DANS LA FILE
         for (int i = 0; i < reservations.size(); i++) {
-            reservations.get(i).setPosition((long) i);
-            booksProxy.reservationsAdd(reservations.get(i));
+            UpdateReservationDto updateReservationDto = new UpdateReservationDto();
+            updateReservationDto.setId(reservations.get(i).getId());
+            updateReservationDto.setPosition((long) i);
+            // SET BOOKID
+            updateReservationDto.setBook(reservations.get(i).getBook());
+            // SET TOKENUSERID
+            updateReservationDto.setTokenuserid(reservations.get(i).getTokenuserid());
+            updateReservationDto.setTokenuseremail(reservations.get(i).getTokenuseremail());
+            booksProxy.reservationsAdd(updateReservationDto);
         }
+
+        System.out.println(reservations);
 
         // ATTRIBUTION DES DATES DE RETOUR LES PLUS PROCHES POUR CHAQUE LIVRE PEU IMPORTE L'EXEMPLAIRE
         Iterable<Book> booksIterable = booksProxy.books();
@@ -145,8 +161,8 @@ public class SchedulingTasks {
                 if(i == 0) {
 
                     // Changer l'utilisateur de l'exemplaire
-                    Loan loan = new Loan();
-                    loan.setTokenuserid(reservations.get(i).getTokenuserid());
+                    UpdateLoanDto updateLoanDto = new UpdateLoanDto();
+                    updateLoanDto.setTokenuserid(reservations.get(i).getTokenuserid());
 
                     // Changement du statut de la reservation (supprimé car statut changé manuellement lorsque le nouvel utilisateur vient chercher l'exemplaire)
                     // reservations.get(i).setStatus("Validé");
@@ -159,15 +175,15 @@ public class SchedulingTasks {
                     this.emailSender.send(message);
 
                     // Creer une date sur l'heure locale
-			        loan.setStartingDate(LocalDateTime.now());
+			        updateLoanDto.setStartingDate(LocalDateTime.now());
 
                     // Persister le nouvel objet Loan
-                    booksProxy.loanAdd(loan);
+                    booksProxy.loanAdd(updateLoanDto);
 
                     // Comparer heure locale et date de creation de l'emprunt
                     // convert date to calendar
                     Calendar c = Calendar.getInstance();
-                    c.setTime(Date.from(loan.getStartingDate().atZone(ZoneId.systemDefault()).toInstant()));
+                    c.setTime(Date.from(updateLoanDto.getStartingDate().atZone(ZoneId.systemDefault()).toInstant()));
                     // manipulate date
                     c.add(Calendar.HOUR, 48);
                     // convert calendar to date

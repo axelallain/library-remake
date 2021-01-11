@@ -9,9 +9,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "copy")
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class,property="@id", scope=Copy.class)
 public class Copy {
 
     @Id

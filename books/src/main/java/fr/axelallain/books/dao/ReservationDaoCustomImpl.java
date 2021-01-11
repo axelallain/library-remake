@@ -27,4 +27,9 @@ public class ReservationDaoCustomImpl implements ReservationDaoCustom {
 
         return (List<Reservation>) query.getResultList();
     }
+
+    @Override
+    public Reservation findById(Long id) {
+        return entityManager.find(Reservation.class, id);
+    }
 }

@@ -1,8 +1,11 @@
 package fr.axelallain.books.controller;
 
+import fr.axelallain.books.dao.BooksDao;
 import fr.axelallain.books.dao.CopyDao;
 import fr.axelallain.books.dao.ReservationDao;
 import fr.axelallain.books.dao.ReservationDaoCustom;
+import fr.axelallain.books.dto.UpdateReservationDto;
+import fr.axelallain.books.model.Book;
 import fr.axelallain.books.model.Copy;
 import fr.axelallain.books.model.Loan;
 import fr.axelallain.books.model.Reservation;
@@ -14,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class ReservationController {
@@ -27,8 +31,22 @@ public class ReservationController {
     @Autowired
     private CopyDao copyDao;
 
+    @Autowired
+    private BooksDao booksDao;
+
     @PostMapping("/reservations")
-    public void reservationsAdd(@RequestBody Reservation reservation, HttpServletResponse response) {
+    public void reservationsAdd(@RequestBody UpdateReservationDto updateReservationDto, HttpServletResponse response) {
+
+        // new reservation a été remplacé par findreservationbyid car already had pojo for id ? (pas fix, erreur toujours présente)
+        Reservation reservation = reservationDaoCustom.findById(updateReservationDto.getId());
+
+        reservation.setPosition(updateReservationDto.getPosition());
+
+        // PROBLEME POUR SET LE BOOK CAR INFINITE RECURSION AVEC LES COPIES DU BOOK (JsonIgnore dans le DTO marche mais ça donne un Null ligne 51)
+        reservation.setBook(updateReservationDto.getBook());
+
+        reservation.setTokenuserid(updateReservationDto.getTokenuserid());
+        reservation.setTokenuseremail(updateReservationDto.getTokenuseremail());
 
         // Find all reservations by book id and tokenuserid ???
         List<Reservation> verificationList = reservationDao.findByBookIdAndTokenuserid(reservation.getBook().getId(), reservation.getTokenuserid());
@@ -39,7 +57,7 @@ public class ReservationController {
         // Récupérer toutes les réservations pour ce livre (pour vérifier combien il y en a déjà savoir si c'est complet ou non pour réserver)
         List<Reservation> reservationsList = reservationDao.findByBookId(reservation.getBook().getId());
 
-        // Tri de la liste en retirant les réservations terminées
+        // Tri de la liste en retirant les réservations terminées pour vérifier si l'user a une réservation EN COURS uniquement sans celles archivées
         for (int i = 0; i < verificationList.size(); i++) {
             if (verificationList.get(i).getStatus().equals("Ended")) {
                 verificationList.remove(i);
