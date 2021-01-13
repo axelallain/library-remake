@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -64,10 +65,20 @@ public class LoanController {
 
     @PutMapping("/loan")
     public void loanAdd(@RequestBody UpdateLoanDto updateLoanDto) {
-        Loan loan = loanDao.findById(updateLoanDto.getId());
-        loan.setLastReminderEmail(updateLoanDto.getLastReminderEmail());
-        loan.setStatus(updateLoanDto.getStatus());
-        loanService.loanAdd(loan);
+
+        if (updateLoanDto.getLastReminderEmail() != null && updateLoanDto.getStatus() != null && updateLoanDto.getId() != 0) {
+            Loan loan = loanDao.findById(updateLoanDto.getId());
+            loan.setLastReminderEmail(updateLoanDto.getLastReminderEmail());
+            // NullPointerException, il faut soit passer un lastReminderEmail au DTO dans la deuxième méthode de SchedulingTasks.java
+            // soit il faut isoler ce setLastReminderEmail pour qu'il ne soit utilisé que dans la première méthode
+            loan.setStatus(updateLoanDto.getStatus());
+            loanService.loanAdd(loan);
+        } else if (updateLoanDto.getTokenuserid() != null && updateLoanDto.getStartingDate() != null && updateLoanDto.getId() == 0){
+            Loan loan = new Loan();
+            loan.setTokenuserid(updateLoanDto.getTokenuserid());
+            loan.setStartingDate(updateLoanDto.getStartingDate());
+            loanService.loanAdd(loan);
+        }
     }
 
     @PostMapping("/loan/{id}/ended")

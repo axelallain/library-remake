@@ -16,7 +16,7 @@ public class Loan {
     @GeneratedValue
     private int id;
 
-    @Column(name = "status", insertable = false)
+    @Column(name = "status")
     private String status = "Started";
 
     @Column(name = "startingDate")
