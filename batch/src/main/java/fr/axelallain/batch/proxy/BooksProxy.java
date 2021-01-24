@@ -1,6 +1,7 @@
 package fr.axelallain.batch.proxy;
 
 import fr.axelallain.batch.dto.UpdateBookDto;
+import fr.axelallain.batch.dto.UpdateCopyDto;
 import fr.axelallain.batch.dto.UpdateLoanDto;
 import fr.axelallain.batch.dto.UpdateReservationDto;
 import fr.axelallain.batch.model.Book;
@@ -23,6 +24,9 @@ public interface BooksProxy {
 
     @PutMapping("/books/loan")
     void loanAdd(@RequestBody UpdateLoanDto updateLoanDto);
+
+    @PutMapping("/books/copy")
+    void copyAdd(@RequestBody UpdateCopyDto updateCopyDto);
 
     @GetMapping("/books/loan/{id}")
     Loan findById(@PathVariable Long id);

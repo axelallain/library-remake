@@ -18,6 +18,8 @@ public class UpdateReservationDto {
 
     private String tokenuseremail;
 
+    private String status;
+
     public UpdateReservationDto() {
     }
 
@@ -59,5 +61,13 @@ public class UpdateReservationDto {
 
     public void setTokenuseremail(String tokenuseremail) {
         this.tokenuseremail = tokenuseremail;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

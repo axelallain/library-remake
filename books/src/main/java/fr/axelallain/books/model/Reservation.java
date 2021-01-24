@@ -33,7 +33,7 @@ public class Reservation {
     private String tokenuseremail;
 
     @Column(name = "status")
-    private String status = "Pending";
+    private String status = "Started";
 
     @Column(name = "position")
     private Long position;

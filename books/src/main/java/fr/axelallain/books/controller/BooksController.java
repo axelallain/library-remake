@@ -56,16 +56,29 @@ public class BooksController {
         } else {
             response.setStatus(HttpServletResponse.SC_CREATED);
 
-            Book book = new Book();
-            book.setId(updateBookDto.getId());
-            book.setName(updateBookDto.getName());
-            book.setAuthor(updateBookDto.getAuthor());
-            book.setPublisher(updateBookDto.getPublisher());
-            book.setCopies(updateBookDto.getCopies());
-            book.setReservations(updateBookDto.getReservations());
-            book.setNextReturnDate(updateBookDto.getNextReturnDate());
+            if (updateBookDto.getId() != 0) {
+                Book book = booksService.findById(updateBookDto.getId()).get();
+                book.setName(updateBookDto.getName());
+                book.setAuthor(updateBookDto.getAuthor());
+                book.setPublisher(updateBookDto.getPublisher());
+                book.setCopies(updateBookDto.getCopies());
+                book.setReservations(updateBookDto.getReservations());
+                book.setNextReturnDate(updateBookDto.getNextReturnDate());
 
-            booksService.save(book);
+                booksService.save(book);
+
+            } else if (updateBookDto.getId() == 0) {
+                Book book = new Book();
+                book.setId(updateBookDto.getId());
+                book.setName(updateBookDto.getName());
+                book.setAuthor(updateBookDto.getAuthor());
+                book.setPublisher(updateBookDto.getPublisher());
+                book.setCopies(updateBookDto.getCopies());
+                book.setReservations(updateBookDto.getReservations());
+                book.setNextReturnDate(updateBookDto.getNextReturnDate());
+
+                booksService.save(book);
+            }
         }
     }
 

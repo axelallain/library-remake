@@ -40,6 +40,10 @@ public class ReservationController {
         // new reservation a été remplacé par findreservationbyid car already had pojo for id ? (pas fix, erreur toujours présente)
         Reservation reservation = reservationDaoCustom.findById(updateReservationDto.getId());
 
+        if (updateReservationDto.getStatus() != null) {
+            reservation.setStatus(updateReservationDto.getStatus());
+        }
+
         reservation.setPosition(updateReservationDto.getPosition());
 
         // PROBLEME POUR SET LE BOOK CAR INFINITE RECURSION AVEC LES COPIES DU BOOK (JsonIgnore dans le DTO marche mais ça donne un Null ligne 51)
@@ -71,7 +75,8 @@ public class ReservationController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else if (!verificationList.isEmpty()) {
+        // Si il existe déjà une reservation pour cet user et que cette reservation n'a pas le même id que celle en cours de création (donc pas un update) alors 403
+        } else if (!verificationList.isEmpty() && !reservation.getId().equals(verificationList.get(0).getId())) {
             try {
                 response.sendError(403, "This user already have a reservation for this book.");
             } catch (IOException e) {
