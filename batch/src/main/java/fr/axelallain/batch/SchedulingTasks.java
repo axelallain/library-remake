@@ -108,6 +108,8 @@ public class SchedulingTasks {
                     updateLoanDto.setStatus("Expired");
                     booksProxy.loanAdd(updateLoanDto);
 
+                    // Lorsque la copie en retard est retournée physiquement, c'est au personnel de la bibliothèque de mettre fin à l'emprunt
+
                     return "Email Sent!";
                 }
             }

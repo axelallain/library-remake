@@ -1,5 +1,6 @@
 package fr.axelallain.clientui.proxy;
 
+import fr.axelallain.clientui.dto.UpdateReservationDto;
 import fr.axelallain.clientui.model.Book;
 import fr.axelallain.clientui.model.Loan;
 import fr.axelallain.clientui.model.Reservation;
@@ -34,7 +35,7 @@ public interface BooksProxy {
     void extensionDate(@PathVariable Long id);
 
     @PostMapping("/books/reservations")
-    void reservationsAdd(@RequestBody Reservation reservation);
+    void reservationsAdd(@RequestBody UpdateReservationDto updateReservationDto);
 
     @GetMapping("/books/reservations/user/{tokenuserid}")
     List<Reservation> findAllReservationsByTokenuserid(@PathVariable String tokenuserid);

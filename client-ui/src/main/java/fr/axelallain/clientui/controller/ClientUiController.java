@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
+import fr.axelallain.clientui.dto.UpdateReservationDto;
 import fr.axelallain.clientui.model.Book;
 import fr.axelallain.clientui.model.Loan;
 import fr.axelallain.clientui.model.Reservation;
@@ -127,8 +128,23 @@ public class ClientUiController {
     public String rechercheOuvrages(Model model, @QueryParam("name") String name, HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         List<Book> books = booksProxy.findByNameContainingIgnoreCase(name);
+        Iterator<Book> booksIterator = books.iterator();
 
+        // Pour chaque book de la liste booksList, supprimer les réservations terminées de la liste des réservations
+        while(booksIterator.hasNext()) {
+            Book b = booksIterator.next();
+            Iterator<Reservation> reservationsIterator = b.getReservations().iterator();
+            while(reservationsIterator.hasNext()) {
+                Reservation r = reservationsIterator.next();
+                if ("Ended".equals(r.getStatus())) {
+                    reservationsIterator.remove();
+                }
+            }
+        }
+
+        // ON ENVOIE LA FILE D'ATTENTE TRIÉE À LA VUE (SANS LES RÉSERVATIONS TERMINÉES, celles archivées)
         model.addAttribute("books", books);
+
         model.addAttribute("reservation", new Reservation());
 
         if (isAuthenticated()) {
@@ -156,13 +172,13 @@ public class ClientUiController {
     public String reservation(int bookid, String tokenuserid, String tokenuseremail, HttpServletResponse response) {
 
         if (isAuthenticated()) {
-            Reservation reservation = new Reservation();
+            UpdateReservationDto updateReservationDto = new UpdateReservationDto();
             Book book = new Book();
             book.setId(bookid);
-            reservation.setBook(book);
-            reservation.setTokenuserid(tokenuserid);
-            reservation.setTokenuseremail(tokenuseremail);
-            booksProxy.reservationsAdd(reservation);
+            updateReservationDto.setBook(book);
+            updateReservationDto.setTokenuserid(tokenuserid);
+            updateReservationDto.setTokenuseremail(tokenuseremail);
+            booksProxy.reservationsAdd(updateReservationDto);
         } else {
             try {
                 response.sendError(401, "No authenticated user found.");
@@ -178,6 +194,14 @@ public class ClientUiController {
     public String reservations(Model model, ClientUiTokenController clientUiTokenController, HttpServletRequest request, HttpServletResponse response) {
 
         List<Reservation> reservations = booksProxy.findAllReservationsByTokenuserid(clientUiTokenController.currentUserId(request, response));
+        Iterator<Reservation> reservationsIterator = reservations.iterator();
+
+        while(reservationsIterator.hasNext()) {
+            Reservation r = reservationsIterator.next();
+            if ("Ended".equals(r.getStatus())) {
+                reservationsIterator.remove();
+            }
+        }
 
         model.addAttribute("reservations", reservations);
 

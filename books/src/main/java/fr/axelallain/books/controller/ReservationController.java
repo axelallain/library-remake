@@ -38,7 +38,15 @@ public class ReservationController {
     public void reservationsAdd(@RequestBody UpdateReservationDto updateReservationDto, HttpServletResponse response) {
 
         // new reservation a été remplacé par findreservationbyid car already had pojo for id ? (pas fix, erreur toujours présente)
-        Reservation reservation = reservationDaoCustom.findById(updateReservationDto.getId());
+        Reservation reservation = null;
+
+        if (updateReservationDto.getId() == null) {
+            reservation = new Reservation();
+        }
+
+        if (updateReservationDto.getId() != null && reservationDaoCustom.findById(updateReservationDto.getId()) != null) {
+            reservation = reservationDaoCustom.findById(updateReservationDto.getId());
+        }
 
         if (updateReservationDto.getStatus() != null) {
             reservation.setStatus(updateReservationDto.getStatus());
