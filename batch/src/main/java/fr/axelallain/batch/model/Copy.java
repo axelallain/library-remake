@@ -4,7 +4,7 @@ import java.util.Collection;
 
 public class Copy {
 
-    private int id;
+    private Long id;
 
     private boolean available;
 
@@ -15,11 +15,15 @@ public class Copy {
     public Copy() {
     }
 
-    public int getId() {
+    public Copy(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

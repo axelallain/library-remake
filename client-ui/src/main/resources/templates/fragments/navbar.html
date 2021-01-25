@@ -25,6 +25,9 @@
                             <a th:href="@{/prets}" class="dropdown-item">
                                 <i class="material-icons">compare_arrows</i> Mes emprunts
                             </a>
+                            <a th:href="@{/reservations}" class="dropdown-item">
+                                <i class="material-icons">date_range</i> Mes réservations
+                            </a>
                             <div sec:authorize="isAuthenticated()">
                                 <a th:href="@{/logout}" class="dropdown-item">
                                     <i class="material-icons">vpn_key</i> Déconnexion

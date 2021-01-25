@@ -1,10 +1,12 @@
 package fr.axelallain.batch.model;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Collection;
 
 public class Book {
 
-    private int id;
+    private Long id;
 
     private String name;
 
@@ -14,14 +16,22 @@ public class Book {
 
     private Collection<Copy> copies;
 
+    private Collection<Reservation> reservations;
+
+    private LocalDateTime nextReturnDate;
+
     public Book() {
     }
 
-    public int getId() {
+    public Book(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -57,6 +67,22 @@ public class Book {
         this.copies = copies;
     }
 
+    public Collection<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(Collection<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+    public LocalDateTime getNextReturnDate() {
+        return nextReturnDate;
+    }
+
+    public void setNextReturnDate(LocalDateTime nextReturnDate) {
+        this.nextReturnDate = nextReturnDate;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
@@ -65,6 +91,8 @@ public class Book {
                 ", author='" + author + '\'' +
                 ", publisher='" + publisher + '\'' +
                 ", copies=" + copies +
+                ", reservations=" + reservations +
+                ", nextReturnDate=" + nextReturnDate +
                 '}';
     }
 }

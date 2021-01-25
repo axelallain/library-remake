@@ -5,6 +5,4 @@ import fr.axelallain.books.model.Book;
 import java.util.List;
 
 public interface BooksRepositoryCustom {
-
-
 }

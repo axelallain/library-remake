@@ -1,12 +1,16 @@
 package fr.axelallain.clientui.proxy;
 
+import fr.axelallain.clientui.dto.UpdateReservationDto;
 import fr.axelallain.clientui.model.Book;
 import fr.axelallain.clientui.model.Loan;
+import fr.axelallain.clientui.model.Reservation;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.QueryParam;
 import java.util.Date;
 import java.util.List;
@@ -19,7 +23,7 @@ public interface BooksProxy {
     Iterable<Book> books();
 
     @GetMapping(value = "/books/books/{id}")
-    Book booksById(@PathVariable("id") int id);
+    Book booksById(@PathVariable("id") Long id);
 
     @GetMapping(value = "/books/books/search")
     List<Book> findByNameContainingIgnoreCase(@RequestParam("name") String name);
@@ -28,5 +32,23 @@ public interface BooksProxy {
     List<Loan> findByTokenuserid(@PathVariable String tokenuserid);
 
     @PostMapping("/books/loan/{id}/extension")
-    void extensionDate(@PathVariable int id);
+    void extensionDate(@PathVariable Long id);
+
+    @PostMapping("/books/reservations")
+    void reservationsAdd(@RequestBody UpdateReservationDto updateReservationDto);
+
+    @GetMapping("/books/reservations/user/{tokenuserid}")
+    List<Reservation> findAllReservationsByTokenuserid(@PathVariable String tokenuserid);
+
+    @GetMapping("/books/reservations/delete/{id}")
+    void deleteReservationById(@PathVariable Long id);
+
+    @GetMapping("/books/reservations/{bookid}")
+    List<Reservation> findByBookIdOrderByCreationDateDesc(@PathVariable Long bookid);
+
+    @GetMapping("/books/reservations")
+    List<Reservation> findAllReservations();
+
+    @GetMapping("/books/loan/date")
+    Iterable<Loan> findAllByOrderByEndingDateDesc();
 }

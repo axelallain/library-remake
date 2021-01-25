@@ -39,6 +39,9 @@
           <th class="th-sm">Auteur</th>
           <th class="th-sm">Édition</th>
           <th class="th-sm">Exemplaires</th>
+          <th class="th-sm">Date de retour la plus proche</th>
+          <th class="th-sm">Nb. d'utilisateurs en file d'attente</th>
+          <th sec:authorize="isAuthenticated()" class="th-sm"></th>
         </tr>
         </thead>
         <tbody>
@@ -48,9 +51,51 @@
           <td th:text="${book.author}" class="truncate"></td>
           <td th:text="${book.publisher}" class="truncate"></td>
           <td th:text="${#lists.size(book.copies)} + ' exemplaires'" class="truncate"></td>
+          <td th:text="${book.nextReturnDate}" class="truncate"></td>
+          <td th:text="${book.getReservations().size()} + ' utilisateurs'" class="truncate"></td>
+
+          <td sec:authorize="isAuthenticated()">
+            <div th:if="${book.copies.isEmpty()}">
+              <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">Réserver</button>
+            </div>
+
+            <form th:action="@{/reservation}"  method="post">
+              <input type="hidden" id="bookid" name="bookid" th:value="${book.id}" />
+              <input type="hidden" id="tokenuserid" name="tokenuserid" th:value="${cuserid}" />
+              <input type="hidden" id="tokenuseremail" name="tokenuseremail" th:value="${cuseremail}" />
+
+              <!--
+              <button th:if="${book.copies.isEmpty()}" type="submit" class="btn btn-success btn-sm">Réserver</button>
+              -->
+
+              <!-- Modal -->
+              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="myModalLabel">Confirmer la réservation</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      Aucun exemplaire n'est actuellement disponible pour cet ouvrage.
+                      Votre réservation va rejoindre la file d'attente.
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                      <button type="submit" class="btn btn-primary">Réserver</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </td>
+
         </tr>
         </tbody>
       </table>
+
     </div>
   </div>
 

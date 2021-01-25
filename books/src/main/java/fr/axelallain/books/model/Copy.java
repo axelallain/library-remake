@@ -9,31 +9,31 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "copy")
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class,property="@id", scope=Copy.class)
 public class Copy {
 
     @Id
     @GeneratedValue
-    private Integer id;
+    private Long id;
 
     @Column(name = "available")
     private boolean available;
 
-    @OneToOne(mappedBy = "copy", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "copy")
     @JsonIgnore
     private Loan loan;
 
     @ManyToOne
-    @JsonBackReference
     private Book book;
 
     public Copy() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -61,13 +61,4 @@ public class Copy {
         this.book = book;
     }
 
-    @Override
-    public String toString() {
-        return "Copy{" +
-                "id=" + id +
-                ", available=" + available +
-                ", loan=" + loan +
-                ", book=" + book +
-                '}';
-    }
 }

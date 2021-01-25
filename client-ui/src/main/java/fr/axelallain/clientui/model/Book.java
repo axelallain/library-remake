@@ -1,6 +1,9 @@
 package fr.axelallain.clientui.model;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.List;
 
 public class Book {
 
@@ -14,7 +17,15 @@ public class Book {
 
     private Collection<Copy> copies;
 
+    private List<Reservation> reservations;
+
+    private LocalDateTime nextReturnDate;
+
     public Book() {
+    }
+
+    public Book(int id) {
+        this.id = id;
     }
 
     public int getId() {
@@ -57,6 +68,22 @@ public class Book {
         this.copies = copies;
     }
 
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+    public LocalDateTime getNextReturnDate() {
+        return nextReturnDate;
+    }
+
+    public void setNextReturnDate(LocalDateTime nextReturnDate) {
+        this.nextReturnDate = nextReturnDate;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
@@ -65,6 +92,8 @@ public class Book {
                 ", author='" + author + '\'' +
                 ", publisher='" + publisher + '\'' +
                 ", copies=" + copies +
+                ", reservations=" + reservations +
+                ", nextReturnDate=" + nextReturnDate +
                 '}';
     }
 }

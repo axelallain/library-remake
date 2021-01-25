@@ -4,24 +4,38 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
+import fr.axelallain.clientui.dto.UpdateReservationDto;
 import fr.axelallain.clientui.model.Book;
 import fr.axelallain.clientui.model.Loan;
+import fr.axelallain.clientui.model.Reservation;
 import fr.axelallain.clientui.proxy.BooksProxy;
+import org.keycloak.KeycloakPrincipal;
+import org.keycloak.KeycloakSecurityContext;
+import org.keycloak.adapters.RefreshableKeycloakSecurityContext;
+import org.keycloak.adapters.springsecurity.account.SimpleKeycloakAccount;
+import org.keycloak.adapters.springsecurity.token.KeycloakAuthenticationToken;
+import org.keycloak.representations.AccessToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
 import java.io.IOException;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 @Controller
@@ -29,6 +43,14 @@ public class ClientUiController {
 
     @Autowired
     private BooksProxy booksProxy;
+
+    @Context
+    SecurityContext securityContext;
+
+    public boolean isAuthenticated(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authentication != null && !(authentication instanceof AnonymousAuthenticationToken) && authentication.isAuthenticated();
+    }
 
     @GetMapping("/")
     public String index(Model model) {
@@ -41,11 +63,35 @@ public class ClientUiController {
     }
 
     @GetMapping("/ouvrages")
-    public String ouvrages(Model model) {
+    public String ouvrages(Model model, HttpServletRequest request, HttpServletResponse response) {
 
-        Iterable<Book> books = booksProxy.books();
+        Iterable<Book> booksIterable = booksProxy.books();
+        Iterator<Book> booksIterator = booksIterable.iterator();
 
-        model.addAttribute("books", books);
+        // Pour chaque book de la liste booksList, supprimer les réservations terminées de la liste des réservations
+        while(booksIterator.hasNext()) {
+            Book b = booksIterator.next();
+            Iterator<Reservation> reservationsIterator = b.getReservations().iterator();
+            while(reservationsIterator.hasNext()) {
+                Reservation r = reservationsIterator.next();
+                if ("Ended".equals(r.getStatus())) {
+                    reservationsIterator.remove();
+                }
+            }
+        }
+
+        // ON ENVOIE LA FILE D'ATTENTE TRIÉE À LA VUE (SANS LES RÉSERVATIONS TERMINÉES, celles archivées)
+        model.addAttribute("books", booksIterable);
+
+        if (isAuthenticated()) {
+            model.addAttribute("cuserid", request.getUserPrincipal().getName());
+
+            KeycloakAuthenticationToken token = (KeycloakAuthenticationToken) request.getUserPrincipal();
+            KeycloakPrincipal principal=(KeycloakPrincipal)token.getPrincipal();
+            KeycloakSecurityContext session = principal.getKeycloakSecurityContext();
+            AccessToken accessToken = session.getToken();
+            model.addAttribute("cuseremail", accessToken.getEmail());
+        }
 
         return "books";
     }
@@ -79,20 +125,95 @@ public class ClientUiController {
     }
 
     @GetMapping("/recherche-ouvrages")
-    public String rechercheOuvrages(Model model, @QueryParam("name") String name) throws IOException {
+    public String rechercheOuvrages(Model model, @QueryParam("name") String name, HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         List<Book> books = booksProxy.findByNameContainingIgnoreCase(name);
+        Iterator<Book> booksIterator = books.iterator();
 
+        // Pour chaque book de la liste booksList, supprimer les réservations terminées de la liste des réservations
+        while(booksIterator.hasNext()) {
+            Book b = booksIterator.next();
+            Iterator<Reservation> reservationsIterator = b.getReservations().iterator();
+            while(reservationsIterator.hasNext()) {
+                Reservation r = reservationsIterator.next();
+                if ("Ended".equals(r.getStatus())) {
+                    reservationsIterator.remove();
+                }
+            }
+        }
+
+        // ON ENVOIE LA FILE D'ATTENTE TRIÉE À LA VUE (SANS LES RÉSERVATIONS TERMINÉES, celles archivées)
         model.addAttribute("books", books);
+
+        model.addAttribute("reservation", new Reservation());
+
+        if (isAuthenticated()) {
+            model.addAttribute("cuserid", request.getUserPrincipal().getName());
+
+            KeycloakAuthenticationToken token = (KeycloakAuthenticationToken) request.getUserPrincipal();
+            KeycloakPrincipal principal=(KeycloakPrincipal)token.getPrincipal();
+            KeycloakSecurityContext session = principal.getKeycloakSecurityContext();
+            AccessToken accessToken = session.getToken();
+            model.addAttribute("cuseremail", accessToken.getEmail());
+        }
 
         return "books";
     }
 
     @PostMapping("/loan/{id}/extension")
-    public String extensionDate(@PathVariable int id) {
+    public String extensionDate(@PathVariable Long id) {
 
         booksProxy.extensionDate(id);
 
         return "redirect:/prets";
+    }
+
+    @PostMapping("/reservation")
+    public String reservation(int bookid, String tokenuserid, String tokenuseremail, HttpServletResponse response) {
+
+        if (isAuthenticated()) {
+            UpdateReservationDto updateReservationDto = new UpdateReservationDto();
+            Book book = new Book();
+            book.setId(bookid);
+            updateReservationDto.setBook(book);
+            updateReservationDto.setTokenuserid(tokenuserid);
+            updateReservationDto.setTokenuseremail(tokenuseremail);
+            booksProxy.reservationsAdd(updateReservationDto);
+        } else {
+            try {
+                response.sendError(401, "No authenticated user found.");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return "redirect:/reservations";
+    }
+
+    @GetMapping("/reservations")
+    public String reservations(Model model, ClientUiTokenController clientUiTokenController, HttpServletRequest request, HttpServletResponse response) {
+
+        List<Reservation> reservations = booksProxy.findAllReservationsByTokenuserid(clientUiTokenController.currentUserId(request, response));
+        Iterator<Reservation> reservationsIterator = reservations.iterator();
+
+        while(reservationsIterator.hasNext()) {
+            Reservation r = reservationsIterator.next();
+            if ("Ended".equals(r.getStatus())) {
+                reservationsIterator.remove();
+            }
+        }
+
+        model.addAttribute("reservations", reservations);
+
+
+        return "reservations";
+    }
+
+    @GetMapping("/reservations/delete/{id}")
+    public String deleteReservationById(@PathVariable Long id) {
+
+        booksProxy.deleteReservationById(id);
+
+        return "redirect:/reservations";
     }
 }
