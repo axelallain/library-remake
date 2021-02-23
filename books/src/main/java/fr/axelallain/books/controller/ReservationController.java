@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,69 +39,116 @@ public class ReservationController {
     @PostMapping("/reservations")
     public void reservationsAdd(@RequestBody UpdateReservationDto updateReservationDto, HttpServletResponse response) {
 
-        // new reservation a été remplacé par findreservationbyid car already had pojo for id ? (pas fix, erreur toujours présente)
+        // Initialisation de la réservation pour une future attribution. Nécessaire pour augmenter son scope.
         Reservation reservation = null;
 
-        if (updateReservationDto.getId() == null) {
-            reservation = new Reservation();
+        // Déclaration de la liste findByBookIdAndTokenuserid dès le début pour augmenter son scope.
+        List<Reservation> findByBookIdAndTokenuserid = new ArrayList<>();
+
+        // Liste des copies existantes pour ce livre (pour que la taille de la file pour ce livre soit de maximum 2x le nombre de copies).
+        List<Copy> copiesList = copyDao.findByBookId(updateReservationDto.getBook().getId());
+        // Liste des réservations pour ce livre (pour vérifier combien il y en a déjà, pour vérifier si on a atteint 2x le nombre de copies).
+        List<Reservation> reservationsList = reservationDao.findByBookId(updateReservationDto.getBook().getId());
+
+        // Liste des réservations que cet user a fait pour ce livre.
+        if (updateReservationDto.getBook() != null && updateReservationDto.getTokenuserid() != null) {
+            findByBookIdAndTokenuserid = reservationDao.findByBookIdAndTokenuserid(updateReservationDto.getBook().getId(), updateReservationDto.getTokenuserid());
         }
 
-        if (updateReservationDto.getId() != null && reservationDaoCustom.findById(updateReservationDto.getId()) != null) {
-            reservation = reservationDaoCustom.findById(updateReservationDto.getId());
+        // Retrait des réservations terminées pour vérifier si l'user a une réservation EN COURS uniquement sans celles archivées.
+        findByBookIdAndTokenuserid.removeIf(r -> "Ended".equals(r.getStatus()));
+
+        // Vérifie si c'est un update ou une nouvelle réservation
+        if (updateReservationDto.getId() != null) {
+            // Si c'est un update, on sélectionne la réservation correspondante.
+            if (reservationDaoCustom.findById(updateReservationDto.getId()) != null) {
+                reservation = reservationDaoCustom.findById(updateReservationDto.getId());
+            } else {
+                // Si un id est bel et bien fourni dans la requête mais que ce n'est pas un update, on vérifie si il existe déjà
+                // une réservation pour ce livre.
+                if (!findByBookIdAndTokenuserid.isEmpty()) {
+                    // Si c'est le cas, erreur 403 car un user est limité à une seule réservation pour un même livre.
+                    try {
+                        response.sendError(403, "This user already have a reservation for this book.");
+                        return;
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    // Si ce n'est pas le cas alors tout est bon, on peut créer une nouvelle réservation.
+                    reservation = new Reservation();
+                }
+            }
+        } else {
+            // Si aucun id n'est fourni dans la requête.
+            // Vérifie si le nombre de réservations existantes pour ce livre n'a pas atteint 2x le nombre de copies pour ce livre.
+            if (reservationsList.size() >= copiesList.size() * 2) {
+                try {
+                    response.sendError(403, "Reservations list for this book is full.");
+                    return;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                // On vérifie également si l'user n'a pas déjà une réservation en cours pour ce livre.
+                if (!findByBookIdAndTokenuserid.isEmpty()) {
+                    // Si c'est le cas, erreur 403 car un user est limité à une seule réservation pour un même livre.
+                    try {
+                        response.sendError(403, "This user already have a reservation for this book.");
+                        return;
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    // Si ce n'est pas le cas alors tout est bon, on peut créer une nouvelle réservation.
+                    reservation = new Reservation();
+                }
+            }
         }
 
+        // Si la réservation n'est ni un update ni une nouvelle réservation.
+        if (reservation == null) {
+            try {
+                response.sendError(204, "No reservation found.");
+                return;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        // Vérifie si les attributs sont null un à un pour éviter un NullPointerException lors du set.
         if (updateReservationDto.getStatus() != null) {
             reservation.setStatus(updateReservationDto.getStatus());
         }
 
-        reservation.setPosition(updateReservationDto.getPosition());
-
-        // PROBLEME POUR SET LE BOOK CAR INFINITE RECURSION AVEC LES COPIES DU BOOK (JsonIgnore dans le DTO marche mais ça donne un Null ligne 51)
-        reservation.setBook(updateReservationDto.getBook());
-
-        reservation.setTokenuserid(updateReservationDto.getTokenuserid());
-        reservation.setTokenuseremail(updateReservationDto.getTokenuseremail());
-
-        // Find all reservations by book id and tokenuserid ???
-        List<Reservation> verificationList = reservationDao.findByBookIdAndTokenuserid(reservation.getBook().getId(), reservation.getTokenuserid());
-
-        // Récupérer toutes les copies existantes pour ce livre (pour le 2x max le nombre de copies dans la file d'attente..)
-        List<Copy> copiesList = copyDao.findByBookId(reservation.getBook().getId());
-
-        // Récupérer toutes les réservations pour ce livre (pour vérifier combien il y en a déjà savoir si c'est complet ou non pour réserver)
-        List<Reservation> reservationsList = reservationDao.findByBookId(reservation.getBook().getId());
-
-        // Tri de la liste en retirant les réservations terminées pour vérifier si l'user a une réservation EN COURS uniquement sans celles archivées
-        for (int i = 0; i < verificationList.size(); i++) {
-            if (verificationList.get(i).getStatus().equals("Ended")) {
-                verificationList.remove(i);
-            }
+        if (updateReservationDto.getPosition() != null) {
+            reservation.setPosition(updateReservationDto.getPosition());
         }
 
-        // Si la liste est vide (donc aucune reservation deja en cours pour cet user sur ce livre), save la reservation.
-        if (reservation == null) {
-            try {
-                response.sendError(204, "No reservation found.");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        // Si il existe déjà une reservation pour cet user et que cette reservation n'a pas le même id que celle en cours de création (donc pas un update) alors 403
-        } else if (!verificationList.isEmpty() && !reservation.getId().equals(verificationList.get(0).getId())) {
-            try {
-                response.sendError(403, "This user already have a reservation for this book.");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else if (reservationsList.size() >= copiesList.size() * 2) {
-            try {
-                response.sendError(403, "Reservations list for this book is full.");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else {
-            response.setStatus(HttpServletResponse.SC_CREATED);
-            reservationDao.save(reservation);
+        if (updateReservationDto.getBook() != null) {
+            reservation.setBook(updateReservationDto.getBook());
         }
+
+        if (updateReservationDto.getTokenuserid() != null) {
+            reservation.setTokenuserid(updateReservationDto.getTokenuserid());
+        }
+
+        if (updateReservationDto.getTokenuseremail() != null) {
+            reservation.setTokenuseremail(updateReservationDto.getTokenuseremail());
+        }
+
+        response.setStatus(HttpServletResponse.SC_CREATED);
+        reservationDao.save(reservation);
+
+        /*
+        Iterator<Reservation> findByBookIdAndTokenUserIdIterator = findByBookIdAndTokenuserid.iterator();
+        while(findByBookIdAndTokenUserIdIterator.hasNext()) {
+            Reservation r = findByBookIdAndTokenUserIdIterator.next();
+            if ("Ended".equals(r.getStatus())) {
+                findByBookIdAndTokenUserIdIterator.remove();
+            }
+        }
+        */
     }
 
     @GetMapping("/reservations/{bookid}")
