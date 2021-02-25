@@ -6,6 +6,8 @@ import fr.axelallain.books.exception.BookNotFoundException;
 import fr.axelallain.books.model.Book;
 import fr.axelallain.books.service.BooksService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -49,14 +51,14 @@ public class BooksController {
     }
 
     @PostMapping("/books")
-    public void booksAdd(@RequestBody UpdateBookDto updateBookDto, HttpServletResponse response) {
+    public ResponseEntity<Object> booksAdd(@RequestBody UpdateBookDto updateBookDto, HttpServletResponse response) {
 
         if (updateBookDto == null) {
             response.setStatus(HttpServletResponse.SC_CREATED, "Your request has an empty body");
         } else {
             response.setStatus(HttpServletResponse.SC_CREATED);
 
-            if (updateBookDto.getId() != 0) {
+            if (updateBookDto.getId() != null) {
                 Book book = booksService.findById(updateBookDto.getId()).get();
                 book.setName(updateBookDto.getName());
                 book.setAuthor(updateBookDto.getAuthor());
@@ -67,7 +69,7 @@ public class BooksController {
 
                 booksService.save(book);
 
-            } else if (updateBookDto.getId() == 0) {
+            } else if (updateBookDto.getId() == null) {
                 Book book = new Book();
                 book.setId(updateBookDto.getId());
                 book.setName(updateBookDto.getName());
@@ -80,6 +82,7 @@ public class BooksController {
                 booksService.save(book);
             }
         }
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PutMapping("/books/{id}")
@@ -97,9 +100,10 @@ public class BooksController {
     }
 
     @DeleteMapping("/books/{id}")
-    public void booksDelete(@PathVariable Long id) {
+    public ResponseEntity<Object> booksDelete(@PathVariable Long id) {
 
         booksService.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/books/search")

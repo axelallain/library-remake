@@ -11,6 +11,7 @@ import fr.axelallain.books.model.Loan;
 import fr.axelallain.books.service.LoanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -71,7 +72,7 @@ public class LoanController {
     }
 
     @PutMapping("/loan")
-    public void loanAdd(@RequestBody UpdateLoanDto updateLoanDto) {
+    public ResponseEntity<Object> loanAdd(@RequestBody UpdateLoanDto updateLoanDto) {
 
         if (updateLoanDto.getLastReminderEmail() != null && updateLoanDto.getStatus() != null && updateLoanDto.getId() != 0) {
             Loan loan = loanDao.findById(updateLoanDto.getId());
@@ -101,26 +102,29 @@ public class LoanController {
             loan.setLastReminderEmail(updateLoanDto.getLastReminderEmail());
             loanService.loanAdd(loan);
         }
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PutMapping("/copy")
-    public void copyAdd(@RequestBody UpdateCopyDto updateCopyDto) {
+    public ResponseEntity<Object> copyAdd(@RequestBody UpdateCopyDto updateCopyDto) {
         // si existe déjà update sinon new copy..
-        if (copyDao.findById(updateCopyDto.getId()) != null) {
+        if (updateCopyDto.getId() != null) {
             Copy copy = copyDao.findById(updateCopyDto.getId()).get();
             copy.setAvailable(updateCopyDto.isAvailable());
             copyDao.save(copy);
+            return new ResponseEntity<>(HttpStatus.CREATED);
         } else {
             Copy copy = new Copy();
             copy.setAvailable(updateCopyDto.isAvailable());
             // set book
             // set loan
             copyDao.save(copy);
+            return new ResponseEntity<>(HttpStatus.CREATED);
         }
     }
 
     @PostMapping("/loan/{id}/ended")
-    public void loanEnded(@PathVariable int id, HttpServletResponse response) {
+    public ResponseEntity<Object> loanEnded(@PathVariable int id, HttpServletResponse response) {
 
         Loan loan = loanDao.findById(id);
 
@@ -130,11 +134,12 @@ public class LoanController {
             loan.setEnded(true);
             loan.setStatus("Ended");
             loanDao.save(loan);
+            return new ResponseEntity<>(HttpStatus.CREATED);
         }
     }
 
     @PostMapping("/loan/{id}/extension")
-    public void extensionDate(@PathVariable int id, HttpServletResponse response) {
+    public ResponseEntity<Object> extensionDate(@PathVariable int id, HttpServletResponse response) {
 
         Loan loan = loanDao.findById(id);
 
@@ -161,9 +166,10 @@ public class LoanController {
             loan.setExtended(true);
 
             loanDao.save(loan);
+            return new ResponseEntity<>(HttpStatus.CREATED);
 
         } else {
-            throw new LoanExtensionException("Loan " + id + " cannot be extended. (already extended or expired)");
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Loan " + id + " cannot be extended. (already extended or expired)");
         }
     }
 
