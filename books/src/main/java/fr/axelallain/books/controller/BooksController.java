@@ -101,9 +101,16 @@ public class BooksController {
 
     @DeleteMapping("/books/{id}")
     public ResponseEntity<Object> booksDelete(@PathVariable Long id) {
-
-        booksService.deleteById(id);
-        return new ResponseEntity<>(HttpStatus.OK);
+        if (id != null) {
+            if (booksService.findById(id).isPresent()) {
+                booksService.deleteById(id);
+                return new ResponseEntity<>(HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @GetMapping("/books/search")
