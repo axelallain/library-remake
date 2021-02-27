@@ -10,7 +10,9 @@ import fr.axelallain.books.model.Copy;
 import fr.axelallain.books.model.Loan;
 import fr.axelallain.books.model.Reservation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
@@ -37,7 +39,7 @@ public class ReservationController {
     private BooksDao booksDao;
 
     @PostMapping("/reservations")
-    public void reservationsAdd(@RequestBody UpdateReservationDto updateReservationDto, HttpServletResponse response) {
+    public ResponseEntity<Object> reservationsAdd(@RequestBody UpdateReservationDto updateReservationDto, HttpServletResponse response) {
 
         // Initialisation de la réservation pour une future attribution. Nécessaire pour augmenter son scope.
         Reservation reservation = null;
@@ -68,12 +70,7 @@ public class ReservationController {
                 // une réservation pour ce livre.
                 if (!findByBookIdAndTokenuserid.isEmpty()) {
                     // Si c'est le cas, erreur 403 car un user est limité à une seule réservation pour un même livre.
-                    try {
-                        response.sendError(403, "This user already have a reservation for this book.");
-                        return;
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    return ResponseEntity.status(HttpStatus.FORBIDDEN).body("This user already have a reservation for this book.");
                 } else {
                     // Si ce n'est pas le cas alors tout est bon, on peut créer une nouvelle réservation.
                     reservation = new Reservation();
@@ -83,22 +80,12 @@ public class ReservationController {
             // Si aucun id n'est fourni dans la requête.
             // Vérifie si le nombre de réservations existantes pour ce livre n'a pas atteint 2x le nombre de copies pour ce livre.
             if (reservationsList.size() >= copiesList.size() * 2) {
-                try {
-                    response.sendError(403, "Reservations list for this book is full.");
-                    return;
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Reservations list for this book is full.");
             } else {
                 // On vérifie également si l'user n'a pas déjà une réservation en cours pour ce livre.
                 if (!findByBookIdAndTokenuserid.isEmpty()) {
                     // Si c'est le cas, erreur 403 car un user est limité à une seule réservation pour un même livre.
-                    try {
-                        response.sendError(403, "This user already have a reservation for this book.");
-                        return;
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    return ResponseEntity.status(HttpStatus.FORBIDDEN).body("This user already have a reservation for this book.");
                 } else {
                     // Si ce n'est pas le cas alors tout est bon, on peut créer une nouvelle réservation.
                     reservation = new Reservation();
@@ -108,12 +95,7 @@ public class ReservationController {
 
         // Si la réservation n'est ni un update ni une nouvelle réservation.
         if (reservation == null) {
-            try {
-                response.sendError(204, "No reservation found.");
-                return;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body("No reservation found.");
         }
 
         // Vérifie si les attributs sont null un à un pour éviter un NullPointerException lors du set.
@@ -137,8 +119,8 @@ public class ReservationController {
             reservation.setTokenuseremail(updateReservationDto.getTokenuseremail());
         }
 
-        response.setStatus(HttpServletResponse.SC_CREATED);
         reservationDao.save(reservation);
+        return new ResponseEntity<>(HttpStatus.CREATED);
 
         /*
         Iterator<Reservation> findByBookIdAndTokenUserIdIterator = findByBookIdAndTokenuserid.iterator();
@@ -176,7 +158,16 @@ public class ReservationController {
     }
 
     @GetMapping("/reservations/delete/{id}")
-    public void deleteReservationById(@PathVariable Long id) {
-        reservationDao.deleteById(id);
+    public ResponseEntity<Object> deleteReservationById(@PathVariable Long id) {
+        if (id != null) {
+            if (reservationDaoCustom.findById(id) != null) {
+                reservationDao.deleteById(id);
+                return new ResponseEntity<>(HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 }
